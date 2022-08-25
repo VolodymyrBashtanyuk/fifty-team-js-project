@@ -8,7 +8,7 @@ function createOneObject(film){
  const {title,genre_ids,poster_path,release_date} = film;
 
 return `<a href=''>
-<div class="photo-card">
+<div class="film-card">
 <img src="${imageURL}${poster_path}" alt="${title}"  />
 <div class="info">
 <p class="info-item">
