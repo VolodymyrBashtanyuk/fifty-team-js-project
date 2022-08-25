@@ -20,10 +20,18 @@
             </nav>
         </div>
         <form class="form">
-            <input class="form__input" type="search" placeholder="movie-search" name="search">
-            <svg class="input__icon" width="12" height="12">
-            <use href="/src/images/icons-header.svg#icon-search"></use>
-        </svg>
+            <div class="input__overlay">
+                <input class="form__input" type="search" placeholder="Movie search" name="search">
+                <button class="form__btn" type="submit">
+                    <svg class="input__icon" width="12" height="12">
+                     <use href="/src/images/icons-header.svg#icon-search"></use>
+                    </svg>
+                </button>
+                
+            </div>
+            <div class="falseresult__overlay">
+                <p class="falseresult__message">Search result not successful. Enter the correct movie name and </p>
+            </div>
         </form>
     </div>
 </header>
