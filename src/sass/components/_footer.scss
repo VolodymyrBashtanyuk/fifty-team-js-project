@@ -1,0 +1,21 @@
+.footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    width: 100%;
+    height: 100px;
+
+    color: var(--footer-txt);
+    background-color: var(--footer-bg);
+}
+.footer__rights{
+    margin-bottom: 10px;
+}
+.footer__link{
+    border-bottom: 1px solid var(--footer-txt);
+    cursor: pointer;
+}
