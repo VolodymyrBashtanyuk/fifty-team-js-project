@@ -2,35 +2,38 @@ const refs = {
     gallery:document.querySelector('.gallery')
 }
 
+
 const imageURL = "https://image.tmdb.org/t/p/w500/";
-
-const createOneObject=oneCart=>
-
-`<div class="photo-card">
-<img src="${oneCart.imageURL.poster_path}" alt="${oneCart.title}"  />
+function createOneObject(film){
+ const {poster_path,title,genre_ids,vote_count} = film;
+console.log(data)
+`<a href=''>
+<div class="photo-card">
+<img src="${imageURL}+${poster_path}" alt="${title}"  />
 <div class="info">
 <p class="info-item">
-  <b>name</b>${oneCart.title}
+  <b>name</b>${title}
 </p>
 <p class="info-item">
-  <b></b>${oneCart.genre_ids}
+  <b></b>${genre_ids}
 </p>
 <p class="info-item">
-  <b></b>${oneCart.description}
+  <b></b>${description}
 </p>
 <p class="info-item">
-  <b></b>${oneCart.vote_count}
+  <b></b>${vote_count}
 </p>
 
 </div>
 </div>
 
-`;
+`};
+
 console.log(createOneObject)
 
 function generateMarkup (array){
 
-return array.reduce((acc,oneCart)=>acc + createOneObject(oneCart),"");
+return array.reduce((acc,film)=>acc + createOneObject(film),"");
 };
 
  export  default function insertCreatedObject (array) {
