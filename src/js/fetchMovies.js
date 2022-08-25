@@ -12,8 +12,9 @@ async fetchMovies(){
       
     const fetchRequest = await fetch(`${this.BASE_URL}${this.MAIN_PAGE_URL}?api_key=${this.KEY}&page=${this.page}`);
     const data = await fetchRequest.json();
- 
+
     return data;
+    
 }
       
 nextPage(){
