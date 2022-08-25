@@ -1,0 +1,89 @@
+.page__header {
+    width: 100vw;
+    padding: 40px 20px 45px 20px;
+    font-family: 'Rotobo', sans-serif;
+    font-weight: 500;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    background-image: url(../images/header/header-bg_s@1x.png);
+    opacity: 0.9;
+    @include mq(retina) {
+        background-image: url(../images/header/header-bg_s@2x.png);
+    }
+    @include mq(tablet) {
+        padding: 40px 33px 45px 33px;
+        background-image: url(../images/header/header-bg_m@1x.png);  
+        @include mq(retina) {
+            background-image: url(../images/header/header-bg_m@2x.png);
+        }
+    }    
+    @include mq(desktop) {
+            max-width: 1280px;
+            height: 600px;
+            background-image: url(../images/header/header-bg_l@1x.png); 
+            @include mq(retina) {
+                background-image: url(../images/header/header-bg_l@2x.png);
+            }   
+            }
+}
+.header__overlay {
+    display: flex;
+    justify-content: space-between;
+}
+.logo {
+    display: flex;
+    align-items: center;
+}
+.header__list {
+    display: flex;
+    align-items: center;
+}
+.nav__link--library {
+    margin-left: 40px;
+}
+.logo__span {
+    display: none;
+    @include mq(tablet) {
+        display: block;
+        margin-left: 10px;
+        font-weight: 500;
+        font-size: 30px;
+        line-height: 1.17;
+        color: #fff;
+    }
+}
+.nav__link {
+    position: relative;
+    text-transform: uppercase;
+    font-size: 12px;
+    line-height: 1.17;
+    color: #fff;
+}
+.nav__link--current::after {
+        position: absolute;
+        bottom: -1px;
+        left: 0px;
+        content: "";
+        display: block;
+        width: 100%;
+        height: 3px;
+        background-color: #FF001B;
+        }
+.form {
+    text-align: center;
+
+}
+.form__input {
+    position: relative;
+    background-color: transparent;
+}
+// .input__icon {
+//     position: absolute;
+//     top: 0px;
+//     right: 0px;
+// }
+.form__input::placeholder {
+    color: #fff;
+}
