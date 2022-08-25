@@ -5,7 +5,7 @@ const refs = {
 
 const imageURL = "https://image.tmdb.org/t/p/w500";
 function createOneObject(film){
- const {title,genre_ids,vote_count,overview,poster_path} = film;
+ const {title,genres,vote_count,poster_path} = film;
 return `<a href=''>
 <div class="photo-card">
 <img src="${imageURL}${poster_path}" alt="${title}"  />
@@ -17,8 +17,9 @@ return `<a href=''>
   <b>${genre_ids}</b>
 </p>
 <p class="info-item">
-  <b>${overview}</b>
+  <b>${genres}</b>
 </p>
+
 <p class="info-item">
   <b>${vote_count}</b>
 </p>
