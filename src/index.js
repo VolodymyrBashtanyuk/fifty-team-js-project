@@ -7,6 +7,7 @@ async function movies(){
     try{
        const response = await movieDbApi.fetchMovies();
        console.log(response)
+
     }catch(error){
         console.log(error)
     };
