@@ -9,8 +9,9 @@ async fetchMovies(){
       
     const fetchRequest = await fetch(`${BASE_URL}?api_key=${KEY}`);
       const data = await fetchRequest.json();
- 
+
     return data;
+    
 }
       
     
