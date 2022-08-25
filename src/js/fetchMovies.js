@@ -16,12 +16,12 @@ async fetchMovies(){
     return data;
     
 }
-      
-nextPage(){
-    this.page += 1;
+
+getPage(){
+    return this.page =  1;
 }
 
-resetPage(){
-    this.page =  1;
+setPage(){
+    this.page += 1;
 }
 };
