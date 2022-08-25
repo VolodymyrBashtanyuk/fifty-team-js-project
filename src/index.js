@@ -7,7 +7,7 @@ async function movies(){
     try{
        const response = await movieDbApi.fetchMovies();
        console.log(response)
-       insertCreatedObject(response.result)
+ insertCreatedObject(response.results)
     }catch(error){
         console.log(error)
     };
