@@ -122,7 +122,6 @@
     color: #fff;
 }
 .falseresult__message {
-    visibility: hidden;
     margin-right: auto;
     margin-left: auto;
     margin-top: 16px;
@@ -139,3 +138,6 @@
         margin-top: 20px;
     }
 }
+.hide {
+    display: none;
+  }
