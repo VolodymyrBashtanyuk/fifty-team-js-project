@@ -3,7 +3,8 @@
     height: 230px;
     margin-left: auto;
     margin-right: auto;
-    padding: 40px 20px 45px 20px;
+    padding: 40px 20px;
+
     font-family: 'Rotobo', sans-serif;
     font-weight: 500;
     background-position: center;
@@ -32,6 +33,7 @@
 .header__overlay {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 .logo {
     display: flex;
@@ -73,27 +75,30 @@
         background-color: #FF001B;
         }
 .form {
-    margin-right: auto;
-    margin-left: auto;
-    width: 100%;
     margin-top: 54px;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
 }
 .input__overlay {
     position: relative;
-    display: inline-block;
+    width: 280px;
+    margin-right: auto;
+    margin-left: auto;
+    @include mq(tablet) {
+        width: 336px;
+    }
+    @include mq(tablet) {
+        width: 394px;
+    }
 }
 .form__input {
-    max-width: 280px;
+    width: 100%;
     background-color: transparent;
+    color: #fff;
     border: none;
     border-bottom: 0.5px solid #FFFFFF;
-    @include mq(tablet) {
-        max-width: 336px;
-    }
-    @include mq(tablet) {
-        max-width: 394px;
-    }
+    
 }
 .form__btn {
     position: absolute;
@@ -107,15 +112,22 @@
     line-height: 1.14;
     color: #fff;
 }
-.falseresult__overlay {
-    display: block;
-    max-width: 280px;
-    margin-top: 16px;
-}
 .falseresult__message {
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 16px;
+
     text-align: left;
     font-weight: 400;
     font-size: 14px;
     line-height: 1.14;
     color: #FF001B;
+    width: 280px;
+    @include mq(tablet) {
+        width: 336px;
+    }
+    @include mq(tablet) {
+        width: 394px;
+    }
+
 }
