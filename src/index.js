@@ -9,7 +9,7 @@ async function movies(){
        const response = await movieDbApi.fetchMovies();
        console.log(response)
        insertCreatedObject(response.results)
-    preLoader()
+   
     }catch(error){
         console.log(error)
     };

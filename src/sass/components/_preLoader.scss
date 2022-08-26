@@ -8,28 +8,29 @@
   transition: 1s all;
   opacity: 1;
   visibility: visible;
-  .loader {
-    width: 175px;
-    height: 175px;
-    border: 10px solid white;
-    border-radius: 50%;
-    border-top-color: blue;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    animation: 1s spin infinite linear;
-  }
   &.done {
     opacity: 0;
     visibility: hidden;
   }
-  @keyframes spin {
-    from {
-      transform: translate(-50%, -50%) rotate(0deg);
-    }
-    to {
-      transform: translate(-50%, -50%) rotate(360deg);
-    }
+}
+.loader {
+  width: 175px;
+  height: 175px;
+  border: 10px solid white;
+  border-radius: 50%;
+  border-top-color: blue;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  animation: 1s spin infinite linear;
+}
+
+@keyframes spin {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
   }
 }
