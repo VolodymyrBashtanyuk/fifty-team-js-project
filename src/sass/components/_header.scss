@@ -11,22 +11,29 @@
     background-repeat: no-repeat;
     background-size: cover;
 
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url(../images/header/header-bg_s@1x.png);
+    background-image: url(../images/header/header-bg_s@1x.png);
     opacity: 0.9;
+    background-color: rgba(0, 0, 0, 0.56);
     @include mq(retina) {
-        background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url(../images/header/header-bg_s@2x.png);
+        background-image: url(../images/header/header-bg_s@2x.png);
+        background-color: rgba(0, 0, 0, 0.56);
     }
     @include mq(tablet) {
         padding: 40px 33px 45px 33px;
-        background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url(../images/header/header-bg_m@1x.png);  
+        height: 216px;
+        background-image: url(../images/header/header-bg_m@1x.png);  
+        background-color: rgba(0, 0, 0, 0.56);
         @include mq(retina) {
-            background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url(../images/header/header-bg_m@2x.png);
+            background-image: url(../images/header/header-bg_m@2x.png);
+            background-color: rgba(0, 0, 0, 0.56);
         }
     }    
     @include mq(desktop) {
-            background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url(../images/header/header-bg_l@1x.png); 
+            background-image: url(../images/header/header-bg_l@1x.png); 
+            background-color: rgba(0, 0, 0, 0.56);
             @include mq(retina) {
-                background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url(../images/header/header-bg_l@2x.png);
+                background-image: url(../images/header/header-bg_l@2x.png);
+                background-color: rgba(0, 0, 0, 0.56);
             }   
             }
 }
@@ -43,9 +50,6 @@
     display: flex;
     align-items: center;
 }
-.nav__link--library {
-    margin-left: 40px;
-}
 .logo__span {
     display: none;
     @include mq(tablet) {
@@ -56,6 +60,9 @@
         line-height: 1.17;
         color: #fff;
     }
+}
+.header__item:last-child {
+    margin-left: 40px;
 }
 .nav__link {
     position: relative;
@@ -79,25 +86,27 @@
     display: flex;
     flex-direction: column;
     justify-content: center; 
+    @include mq(tablet) {
+        margin-top: 40px;
+    }
 }
 .input__overlay {
     position: relative;
-    width: 280px;
     margin-right: auto;
     margin-left: auto;
-    @include mq(tablet) {
-        width: 336px;
-    }
-    @include mq(tablet) {
-        width: 394px;
-    }
 }
 .form__input {
-    width: 100%;
+    width: 280px;
     background-color: transparent;
     color: #fff;
     border: none;
     border-bottom: 0.5px solid #FFFFFF;
+    @include mq(tablet) {
+        width: 336px;
+    }
+    @include mq(desktop) {
+        width: 394px;
+    }
     
 }
 .form__btn {
@@ -124,10 +133,8 @@
     color: #FF001B;
     width: 280px;
     @include mq(tablet) {
-        width: 336px;
+        text-align: center;
+        width: 100%;
+        margin-top: 20px;
     }
-    @include mq(tablet) {
-        width: 394px;
-    }
-
 }
