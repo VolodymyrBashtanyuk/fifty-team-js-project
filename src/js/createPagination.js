@@ -83,8 +83,8 @@ function onPaginationClick(e) {
     }
     
     currentPage = nextPage
-    console.log('currentPage', currentPage);
-    console.log('nextPage', nextPage);
+    // console.log('currentPage', currentPage);
+    // console.log('nextPage', nextPage);
     
     movieDbApi.setPage(nextPage)
     movies();
