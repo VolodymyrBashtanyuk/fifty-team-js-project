@@ -1,8 +1,8 @@
 .footer{
     display: flex;
+    text-align: center; 
     flex-direction: column;
     justify-content: center;
-    align-items: center;
     font-weight: 400;
     font-size: 14px;
     line-height: 16px;
@@ -10,6 +10,7 @@
     height: 100px;
     @include mq(tablet) {
         flex-direction: row;
+        align-items: center;
       }
 
     color: var(--footer-txt);
@@ -22,7 +23,13 @@
         margin-right: 5px;
       }
 }
-.footer__link{
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.footer__btn{
+    color: inherit;
     border-bottom: 1px solid var(--footer-txt);
     cursor: pointer;
 }
