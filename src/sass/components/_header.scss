@@ -57,7 +57,7 @@
         font-weight: 500;
         font-size: 30px;
         line-height: 1.17;
-        color: #fff;
+        color: var(--secondary-txt);
     }
 }
 .header__item:last-child {
@@ -68,7 +68,7 @@
     text-transform: uppercase;
     font-size: 12px;
     line-height: 1.17;
-    color: #fff;
+    color: var(--secondary-txt);
 }
 .nav__link--current::after {
         position: absolute;
@@ -97,7 +97,7 @@
 .form__input {
     width: 280px;
     background-color: transparent;
-    color: #fff;
+    color: var(--secondary-txt);
     border: none;
     border-bottom: 0.5px solid #FFFFFF;
     @include mq(tablet) {
@@ -118,7 +118,7 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 1.14;
-    color: #fff;
+    color: var(--secondary-txt);
 }
 .falseresult__message {
     margin-right: auto;
