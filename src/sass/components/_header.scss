@@ -12,27 +12,27 @@
 
     background-image: url(../images/header/header-bg_s@1x.png);
     opacity: 0.9;
-    background-color: rgba(0, 0, 0, 0.56);
+    background-color: var(--header-bg);
     @include mq(retina) {
         background-image: url(../images/header/header-bg_s@2x.png);
-        background-color: rgba(0, 0, 0, 0.56);
+        background-color: var(--header-bg);
     }
     @include mq(tablet) {
         padding: 40px 33px 45px 33px;
         height: 216px;
         background-image: url(../images/header/header-bg_m@1x.png);  
-        background-color: rgba(0, 0, 0, 0.56);
+        background-color: var(--header-bg);
         @include mq(retina) {
             background-image: url(../images/header/header-bg_m@2x.png);
-            background-color: rgba(0, 0, 0, 0.56);
+            background-color: var(--header-bg);
         }
     }    
     @include mq(desktop) {
             background-image: url(../images/header/header-bg_l@1x.png); 
-            background-color: rgba(0, 0, 0, 0.56);
+            background-color: var(--header-bg);
             @include mq(retina) {
                 background-image: url(../images/header/header-bg_l@2x.png);
-                background-color: rgba(0, 0, 0, 0.56);
+                background-color: var(--header-bg);
             }   
             }
 }
