@@ -1,0 +1,52 @@
+.library {
+    @include mq(tablet) {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -8px;  
+    }
+}
+.library-card {
+    background: #965454;
+    width: 280px;
+    height: 443px;
+
+    &:not(:last-child) {
+        @include mq(mobile-only) {
+            margin-bottom: 32px;
+        }
+    }
+
+        @include mq(mobile-only) {
+        max-width: 280px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+        @include mq(tablet) {
+        width: calc((100% - 4 * 8px) / 2);
+        margin: 8px;
+    }
+
+        @include mq(desktop) {
+        width: calc((100% - 6 * 8px) / 3);
+        margin: 8px;
+    }
+}
+.library-link {
+    display: block;
+    text-decoration: none;
+    transition: box-shadow var(--animation-hover);
+ 
+    &:hover,
+    &:focus {
+        box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+            1px 4px 6px rgba(0, 0, 0, 0.16);
+    }
+
+        @include mq(tablet-only) {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+
+    }
+}
