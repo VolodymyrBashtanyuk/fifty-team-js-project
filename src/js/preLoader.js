@@ -1,4 +1,8 @@
-window.onload =function (){
-    let loader = document.getElementById('loader')
-   loader.style.dispaly = 'none';
+ export default document.body.onload = function () {
+    setTimeout (function(){
+let preloader = document.getElementById('page-preloader');
+if(preloader.classList.contains("done")){
+    preloader.classList.add('done')
+}
+    },1000)
 }
