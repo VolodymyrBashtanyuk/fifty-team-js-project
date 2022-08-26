@@ -1,0 +1,103 @@
+.list,
+ul {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+h1,
+h2,
+h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.visually-hidden {
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    border: 0;
+    padding: 0;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    margin: -1px;
+}
+.container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 16px;
+    padding-right: 16px;
+
+    @media screen and(min-width:480px) {
+        width: 480px;
+    }
+
+    @media screen and(min-width:768px) {
+        width: 768px;
+    }
+
+    @media screen and(min-width: 1200px) {
+        width: 1200px;
+    }
+
+}
+
+
+.library {
+    @media screen and (min-width: 768px) {
+        display: flex;
+        flex-wrap: wrap;
+        margin: -8px;
+    }
+
+}
+
+.library-card {
+    background: #965454;
+    width: 280px;
+    height: 443px;
+
+    &:not(:last-child) {
+        @media screen and (max-width: 767px) {
+            margin-bottom: 32px;
+        }
+    }
+
+    @media screen and (max-width: 767px) {
+        max-width: 280px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    @media screen and (min-width: 768px) {
+        width: calc((100% - 4 * 8px) / 2);
+        margin: 8px;
+    }
+
+    @media screen and (min-width: 1200px) {
+        width: calc((100% - 6 * 8px) / 3);
+        margin: 8px;
+    }
+}
+.library-link {
+    display: block;
+    text-decoration: none;
+    transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover,
+    &:focus {
+        box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+            1px 4px 6px rgba(0, 0, 0, 0.16);
+    }
+
+    @media screen and(min-width:768px) and (max-width: 1199px) {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+
+    }
+}
