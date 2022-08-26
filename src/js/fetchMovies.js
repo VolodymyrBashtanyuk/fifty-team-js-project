@@ -21,7 +21,7 @@ getPage(){
     return this.page =  1;
 }
 
-setPage(){
-    this.page += 1;
+setPage(newPage){
+    this.page = newPage;
 }
 };
