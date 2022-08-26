@@ -13,7 +13,7 @@ return `
     <img class="poster" src="${imageURL}${poster_path}" alt="${title}"  />
 
     <p class="info-title">${title}</p>
-    <div class="info-item">
+    <div class="info-title info-item">
       <p class="">${genre_ids}
       </p>
       <p class="">${release_date.slice(0,4)}
