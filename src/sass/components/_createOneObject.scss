@@ -1,5 +1,4 @@
 .film-card {
-    outline: 1px solid green;
     &:not(:last-child) {
         @include mq(mobile-only) {
             margin-bottom: 40px;
@@ -16,12 +15,6 @@
         margin: 16px 8px;
     }
 }
-
-// .film-card:focus,
-// .film-card:hover, .info-title {
-//     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-// }
-
 
 .poster {
     display: block;
@@ -72,26 +65,3 @@
         border-right: 1px solid var(--body-second-txt);
     }
 }
-
-// .team-box {
-//     padding-top: 30px;
-//     padding-bottom: 30px;
-//     padding-right: 32px;
-//     padding-left: 32px;
-// }
-
-// .team__name {
-//     margin-bottom: 10px;
-//     font-weight: 500;
-//     font-size: 16px;
-//     line-height: 1.19;
-//     text-align: center;
-//     color: var(--secondary-text-color);
-// }
-
-// .team__position {
-//     font-size: 16px;
-//     line-height: 1.19;
-//     text-align: center;
-//     color: var(--primery-text-color);
-// }
