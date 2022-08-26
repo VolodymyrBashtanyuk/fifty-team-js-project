@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-@import './common';
-@import './example';
-@import './createOneObject';
-@import './preLoader';
-=======
 @import './units/common';
 @import './units/mixin';
 @import './units/variables';
@@ -11,9 +5,5 @@
 @import './base/container';
 @import './base/basic';
 
-
 @import './components/createOneObject';
-
-
-
->>>>>>> main
+@import './components/preloader';
