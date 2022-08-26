@@ -1,0 +1,15 @@
+body {
+    font-family: var(--primary-font);
+    color: var(--primery-txt);
+    background-color: var(--background-color);
+  }
+  
+  .section {
+      padding-top: 40px;
+      padding-bottom: 40px;
+      
+    @include mq(tablet) {
+      padding-top: 60px;
+      padding-bottom: 60px;
+    }
+  }
