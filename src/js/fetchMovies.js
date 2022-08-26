@@ -18,7 +18,7 @@ async fetchMovies(){
 }
 
 getPage(){
-    return this.page =  1;
+    return this.page;
 }
 
 setPage(newPage){
