@@ -1,5 +1,6 @@
 import theMovieDbApi from "./js/fetchMovies";
-import insertCreatedObject from './js/createOneObject'
+import insertCreatedObject from './js/createOneObject';
+import keywordSearch from './js/keywordSearch';
 const movieDbApi = new theMovieDbApi();
 
 
