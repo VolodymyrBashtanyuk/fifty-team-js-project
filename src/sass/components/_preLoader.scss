@@ -33,7 +33,7 @@
   line-height: calc(53 / 30);
   align-items: center;
   text-align: center;
-  color: white;
+  color: var(--background-color);
 }
 .preloader__img {
   width: 60px;
