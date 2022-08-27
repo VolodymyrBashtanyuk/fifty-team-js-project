@@ -32,7 +32,7 @@ return arrayImages.reduce((acc,film)=>acc + createOneObject(film),"");
 
  export  default function insertCreatedObject (arrayImages) {
   const result = generateMarkup(arrayImages);
-  refs.gallery.insertAdjacentHTML('beforeend', result);
+  refs.gallery.innerHTML = result;
  
 
 };
