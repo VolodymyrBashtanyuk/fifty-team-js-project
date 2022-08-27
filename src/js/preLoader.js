@@ -1,8 +1,20 @@
- export default document.body.onload = function () {
-    setTimeout (function(){
-let preloader = document.getElementById('page-preloader');
-if(!preloader.classList.contains("done")){
-    preloader.classList.add('done')
+
+import { Loading } from 'notiflix/build/notiflix-loading-aio';
+class LoadSpinner{
+    constructor(){}
+    startSpinner(){
+        Loading.arrows({
+            svgColor: '#ff6b01',
+        });
+    }
+    removeSpinner(){
+        Loading.remove();
+        
+    }
+    erorrSpinner(){
+        Loading.arrows("temporary problems",{
+            svgColor :"#ff6b01",
+        })
+    }
 }
-    },700)
-}
+export default new LoadSpinner();
