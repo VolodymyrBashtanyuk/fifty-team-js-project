@@ -145,6 +145,7 @@
 .header__btns {
     display: flex;
     justify-content: center;
+    align-items: center;
     margin-top: 60px;
     @include mq(tablet) {
         margin-top: 40px;
@@ -156,14 +157,10 @@
     border: 1px solid var(--secondary-txt);
     border-radius: 5px;
     background-color: transparent;
-
-    font-size: 12px;
-    line-height: 1.33;
     display: flex;
+    justify-content: center;
     align-items: center;
-    text-align: center;
-    text-transform: uppercase;
-    color: var(--secondary-txt);
+
     @include mq(tablet) {
         width: 150px;
     }
@@ -175,11 +172,24 @@
     border: transparent;
 }
 .header__btn:last-child {
-    margin-right: 20px;
+    margin-left: 20px;
     @include mq(tablet) {
-        margin-right: 34px;
+        margin-left: 34px;
     }
     @include mq(desktop) {
-        margin-top: 16px;
+        margin-left: 16px;
     }
+}
+.header__btnlink {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.header__btn--watched,
+.header__btn--queue {
+    background-color: transparent;
+    font-size: 12px;
+    line-height: 1.33;
+    text-transform: uppercase;
+    color: var(--secondary-txt);
 }
