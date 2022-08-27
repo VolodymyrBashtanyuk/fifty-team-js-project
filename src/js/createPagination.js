@@ -103,11 +103,19 @@ async function movies() {
         insertCreatedObject(response.results)
         createPagination(response)
         spinner.removeSpinner()
+        smoothScrool()
 
     }catch(error){
         console.log(error)
     };
 };
 
+function smoothScrool() {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+   })
+ 
+}
 
 export {createPagination}
