@@ -2,7 +2,7 @@ import theMovieDbApi from "./js/fetchMovies";
 import insertCreatedObject from './js/createOneObject'
 import spinner from './js/preLoader'
 
-
+import openCardFilm from './js/openCardFilm'
 import {createPagination} from "./js/createPagination"
 
 const movieDbApi = new theMovieDbApi();
