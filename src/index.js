@@ -8,7 +8,9 @@ const movieDbApi = new theMovieDbApi();
 async function movies(){
     try{
        const response = await movieDbApi.fetchMovies();
-       console.log(response)
+       const genreResponse = await movieDbApi.fetchGenres();
+       console.log(response);
+       console.log(genreResponse);
        insertCreatedObject(response.results)
     createPagination(response)
         
