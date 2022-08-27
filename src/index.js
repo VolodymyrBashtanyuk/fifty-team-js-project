@@ -1,6 +1,8 @@
 import theMovieDbApi from "./js/fetchMovies";
 import insertCreatedObject from './js/createOneObject'
 import preLoader from './js/preLoader'
+
+import openCardFilm from './js/openCardFilm'
 const movieDbApi = new theMovieDbApi();
 
 
