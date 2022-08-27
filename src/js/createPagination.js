@@ -48,7 +48,7 @@ function renderPagination(elems, current, lastPage) {
     return `<li ><div class = "empryBox">...</div></li>`    
         }
     
-    return `<li ><button type="button" class = "${index === current ? 'current' : ''}" data-btn="${index}">${index}</button></li>`
+    return `<li ><button type="button" class = "${index === current ? 'current' : ''} ${(index === '<') || (index === '>') ? 'arrow' : ''}" data-btn="${index}">${index}</button></li>`
     }).join('')
 
     // const paginationMarkup = `<ul class="pagination">${markup}</ul>`
