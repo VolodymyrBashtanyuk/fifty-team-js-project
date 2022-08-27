@@ -11,16 +11,14 @@ const movieDbApi = new theMovieDbApi();
 async function movies(){
     spinner.startSpinner();
     try{
-       const response = await movieDbApi.fetchMovies();
-       const genreResponse = await movieDbApi.fetchGenres();
-       console.log(response);
-       console.log(genreResponse);
-       insertCreatedObject(response.results)
-       spinner.removeSpinner();
-
-     createPagination(response)
+        const response = await movieDbApi.fetchMovies();
+        const genreResponse = await movieDbApi.fetchGenres();
+        console.log(response);
+        console.log(genreResponse);
+        insertCreatedObject(response.results)
+        createPagination(response)
+        spinner.removeSpinner();
         
-
     }catch(error){
         console.log(error)
     };
