@@ -1,0 +1,64 @@
+// .backdrop {
+//     position: fixed;
+//     left: 0;
+//     top: 0;
+//     width: 100vw;
+//     height: 100vh;
+//     background: rgba(0, 0, 0, 0.2);
+//     opacity: 1;
+//     visibility: visible;
+//     transition: opacity 250ms $timing-function, visibility 250ms $timing-function,
+//         transform 250ms $timing-function;
+//     z-index: 20;
+//     &.is-hidden {
+//         opacity: 0;
+//         pointer-events: none;
+//         visibility: hidden;
+//     }
+// }
+// .backdrop__form {
+//     width: 100%;
+//     position: absolute;
+//     top: 50%;
+//     left: 50%;
+//     transform: translate(-50%, -50%) scale(1);
+//     // background-color: $main-background;
+//     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+//         0px 2px 1px rgba(0, 0, 0, 0.2);
+//     border-radius: 4px;
+//     // transition: transform 250ms $timing-function;
+//     .backdrop.is-hidden & {
+//         transform: translate(-50%, -50%) scale(0.5);
+//     }
+//     @media screen and (min-width: 480px) {
+//         width: 450px;
+//         height: 609px;
+//     }
+//     @media screen and (min-width: 1200px) {
+//         width: 528px;
+//         height: 581px;
+//     }
+// }
+// .backdrop__button {
+//     position: absolute;
+//     top: 4px;
+//     right: 20px;
+//     padding: 0;
+//     width: 30px;
+//     height: 30px;
+//     border: 1px solid rgba(0, 0, 0, 0.1);
+//     border-radius: 50%;
+//     background-color:$main-background;
+//     cursor: pointer;
+//     // &:hover, &:focus {
+//     //     // color: $color-accent;
+//     // }
+//     @media screen and(min-width: 480px) {
+//         top: 8px;
+//         right: 8px;
+//     }
+// }
+// .backdrop__icon {
+//     fill: currentColor;
+//     // transition: color 250ms;
+// }
