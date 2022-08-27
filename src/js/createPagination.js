@@ -1,6 +1,8 @@
 import theMovieDbApi from "./fetchMovies";
 const movieDbApi = new theMovieDbApi();
-import insertCreatedObject from './createOneObject'
+import insertCreatedObject from './createOneObject';
+import spinner from './preLoader'
+
 
 let currentPage;
 let lastPage;
@@ -92,13 +94,16 @@ function onPaginationClick(e) {
 
 }
 
-async function movies(){
+async function movies() {
+    spinner.startSpinner();
+
     try{
-       const response = await movieDbApi.fetchMovies();
-       console.log(response)
-       insertCreatedObject(response.results)
-    createPagination(response)
-        
+        const response = await movieDbApi.fetchMovies();
+        console.log(response)
+        insertCreatedObject(response.results)
+        createPagination(response)
+        spinner.removeSpinner()
+
     }catch(error){
         console.log(error)
     };
