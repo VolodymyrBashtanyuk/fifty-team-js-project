@@ -1,6 +1,5 @@
 import theMovieDbApi from "./js/fetchMovies";
 import insertCreatedObject from './js/createOneObject'
-EAD
 import spinner from './js/preLoader'
 
 
