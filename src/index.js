@@ -1,6 +1,7 @@
 import theMovieDbApi from "./js/fetchMovies";
 import insertCreatedObject from './js/createOneObject'
 import preLoader from './js/preLoader'
+// import getGenre from './js/genre';
 const movieDbApi = new theMovieDbApi();
 
 
