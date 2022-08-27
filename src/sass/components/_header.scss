@@ -3,7 +3,8 @@
     height: 230px;
     margin-left: auto;
     margin-right: auto;
-    padding: 40px 20px;
+    padding-top: 40px;
+    padding-bottom: 44px;
 
     font-weight: 500;
     background-position: center;
@@ -18,7 +19,6 @@
         background-color: var(--header-bg);
     }
     @include mq(tablet) {
-        padding: 40px 33px 45px 33px;
         height: 216px;
         background-image: url(../images/header/header-bg_m@1x.png);  
         background-color: var(--header-bg);
