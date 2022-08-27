@@ -3,7 +3,7 @@ import insertCreatedObject from './js/createOneObject'
 import spinner from './js/preLoader'
 
 
-import {createPagination} from "./js/createPagination"
+import {createPagination, getCurrentPageLs} from "./js/createPagination"
 
 const movieDbApi = new theMovieDbApi();
 
@@ -16,7 +16,7 @@ async function movies(){
         console.log(response);
         console.log(genreResponse);
         insertCreatedObject(response.results)
-        createPagination(response)
+        if(response.total_pages > 1) createPagination(response)
         spinner.removeSpinner();
         
     }catch(error){
@@ -24,4 +24,5 @@ async function movies(){
     };
 };
 
+movieDbApi.setPage(getCurrentPageLs())        
 movies();

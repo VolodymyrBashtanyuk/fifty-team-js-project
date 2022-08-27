@@ -6,6 +6,7 @@ import spinner from './preLoader'
 
 let currentPage;
 let lastPage;
+const LS_CURRENT_PAGE_KEY = 'currentPage'
 
 
 function createPagination({ page: current = 1, total_pages: last }) {
@@ -87,7 +88,7 @@ function onPaginationClick(e) {
     currentPage = nextPage
     // console.log('currentPage', currentPage);
     // console.log('nextPage', nextPage);
-    
+    saveCurrentPageLs(currentPage)
     movieDbApi.setPage(nextPage)
     movies();
     // renderPagination(createArr(nextPage, lastPage), nextPage)
@@ -115,7 +116,28 @@ function smoothScrool() {
         top: 0,
         behavior: "smooth"
    })
- 
 }
 
-export {createPagination}
+function saveCurrentPageLs(page) {
+    try {
+        localStorage.setItem(LS_CURRENT_PAGE_KEY, JSON.stringify({currentPage: page}))
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+function getCurrentPageLs() {
+
+    try {
+    const data = JSON.parse(localStorage.getItem(LS_CURRENT_PAGE_KEY))
+    if (!data) {
+        return 1
+    }
+    console.log(data.currentPage);
+    return data.currentPage
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export {createPagination, getCurrentPageLs}
