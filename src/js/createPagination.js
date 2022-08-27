@@ -12,9 +12,6 @@ const LS_CURRENT_PAGE_KEY = 'currentPage'
 function createPagination({ page: current = 1, total_pages: last }) {
     currentPage = current;
     lastPage = last
-    console.log('currentPage', currentPage);
-    console.log('lastPage',lastPage);
-    // const {page:currentPage = 1, tota_pages:lastPage} = response
     const dataSet = createArr(currentPage, lastPage)
  renderPagination(dataSet, currentPage, lastPage)
 }
@@ -130,10 +127,7 @@ function getCurrentPageLs() {
 
     try {
     const data = JSON.parse(localStorage.getItem(LS_CURRENT_PAGE_KEY))
-    if (!data) {
-        return 1
-    }
-    console.log(data.currentPage);
+    if (!data) return 1
     return data.currentPage
     } catch (error) {
         console.log(error);
