@@ -1,17 +1,18 @@
 import theMovieDbApi from "./js/fetchMovies";
 import insertCreatedObject from './js/createOneObject'
-import preLoader from './js/preLoader'
+import spinner from './js/preLoader'
 const movieDbApi = new theMovieDbApi();
 
 
 async function movies(){
+    spinner.startSpinner();
     try{
        const response = await movieDbApi.fetchMovies();
        const genreResponse = await movieDbApi.fetchGenres();
        console.log(response);
        console.log(genreResponse);
        insertCreatedObject(response.results)
-   
+   spinner.removeSpinner();
     }catch(error){
         console.log(error)
     };
