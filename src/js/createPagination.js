@@ -1,17 +1,17 @@
 import theMovieDbApi from "./fetchMovies";
 const movieDbApi = new theMovieDbApi();
-import insertCreatedObject from './createOneObject'
+import insertCreatedObject from './createOneObject';
+import spinner from './preLoader'
+
 
 let currentPage;
 let lastPage;
+const LS_CURRENT_PAGE_KEY = 'currentPage'
 
 
 function createPagination({ page: current = 1, total_pages: last }) {
     currentPage = current;
     lastPage = last
-    console.log('currentPage', currentPage);
-    console.log('lastPage',lastPage);
-    // const {page:currentPage = 1, tota_pages:lastPage} = response
     const dataSet = createArr(currentPage, lastPage)
  renderPagination(dataSet, currentPage, lastPage)
 }
@@ -85,24 +85,53 @@ function onPaginationClick(e) {
     currentPage = nextPage
     // console.log('currentPage', currentPage);
     // console.log('nextPage', nextPage);
-    
+    saveCurrentPageLs(currentPage)
     movieDbApi.setPage(nextPage)
     movies();
     // renderPagination(createArr(nextPage, lastPage), nextPage)
 
 }
 
-async function movies(){
+async function movies() {
+    spinner.startSpinner();
+
     try{
-       const response = await movieDbApi.fetchMovies();
-       console.log(response)
-       insertCreatedObject(response.results)
-    createPagination(response)
-        
+        const response = await movieDbApi.fetchMovies();
+        console.log(response)
+        insertCreatedObject(response.results)
+        createPagination(response)
+        spinner.removeSpinner()
+        smoothScrool()
+
     }catch(error){
         console.log(error)
     };
 };
 
+function smoothScrool() {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+   })
+}
 
-export {createPagination}
+function saveCurrentPageLs(page) {
+    try {
+        localStorage.setItem(LS_CURRENT_PAGE_KEY, JSON.stringify({currentPage: page}))
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+function getCurrentPageLs() {
+
+    try {
+    const data = JSON.parse(localStorage.getItem(LS_CURRENT_PAGE_KEY))
+    if (!data) return 1
+    return data.currentPage
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export {createPagination, getCurrentPageLs}
