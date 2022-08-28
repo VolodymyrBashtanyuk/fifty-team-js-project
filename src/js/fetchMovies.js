@@ -24,6 +24,12 @@ async fetchGenres(){
     return list.genres;
 }
 
+async fetchOneMovie(id) {
+    const oneMovieRequest = await fetch(`${this.BASE_URL}movie/${id}?api_key=${this.KEY}&language=en-US`);
+    const dataOneMovie = await oneMovieRequest.json();
+    return dataOneMovie;
+}
+
 getPage(){
     return this.page;
 }
@@ -32,3 +38,4 @@ setPage(newPage){
     this.page = newPage;
 }
 };
+
