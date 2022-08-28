@@ -1,0 +1,9 @@
+.gallery {
+    @include mq(tablet) {  
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        margin: -16px -8px;
+    }
+}
+

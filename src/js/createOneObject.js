@@ -9,20 +9,17 @@ function createOneObject(film){
 
 return `
 <li class="film-card">
-<a href=''>
-<img src="${imageURL}${poster_path}" alt="${title}"  />
+  <a href=''>
+    <img class="poster" src="${imageURL}${poster_path}" alt="${title}"  />
 
-<p class="info-item">
-  <b>${title}</b>
-</p>
-<p class="info-item">
-  <b>${genre_ids}</b>
-</p>
-<p class="info-item">
-  <b>${release_date.slice(0,4)}</b>
-</p>
-
-</a>
+    <p class="info-title">${title}</p>
+    <div class="info-title info-item">
+      <p class="">${genre_ids}
+      </p>
+      <p class="">${release_date.slice(0,4)}
+      </p>
+    </div>
+  </a>
 </li>
 `};
 
@@ -35,7 +32,7 @@ return arrayImages.reduce((acc,film)=>acc + createOneObject(film),"");
 
  export  default function insertCreatedObject (arrayImages) {
   const result = generateMarkup(arrayImages);
-  refs.gallery.insertAdjacentHTML('beforeend', result);
+  refs.gallery.innerHTML = result;
  
 
 };
