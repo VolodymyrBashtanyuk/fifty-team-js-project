@@ -13,8 +13,9 @@ function createOneObject(film){
 return `
 <li class="film-card" id = ${id}>
   <a href=''>
-    <img class="poster" src="${imageURL}${poster_path}" alt="${title}"  />
-
+    <div class="poster__thumb">
+      <img class="poster" src="${imageURL}${poster_path}" alt="${title}"  />
+    </div>
     <p class="info-title">${title}</p>
     <div class="info-title info-item">
       <p class="">${genreInCard}
