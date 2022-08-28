@@ -19,3 +19,7 @@ function filmGenre(genre_ids) {
 
 
 export { saveGenre, getGenre, filmGenre };
+
+//  const genreInCard = filmGenre(genre_ids);
+
+        // saveGenre(genreResponse);
