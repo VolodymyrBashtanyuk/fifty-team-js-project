@@ -11,13 +11,15 @@ refsModal.backdrop.addEventListener('click', closeModalClick);
 
 function openCardFilm (e) {
     e.preventDefault();
-
+   
     if (!e.target.classList.contains('info-title') &&  !e.target.classList.contains('poster')) {
         return;
     } 
+
 refsModal.backdrop.classList.add('is-visible');
 document.addEventListener('keydown', closeModalEsc);
 document.removeEventListener('click', closeModalEsc);
+
 }
 
 function closeModalEsc(evt) {
