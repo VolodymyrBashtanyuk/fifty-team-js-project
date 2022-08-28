@@ -12,8 +12,7 @@
     height: 40px;
     border: none;
     border-radius: 5px;
-    // background-color: #E5E5E5;
-    background-color: white;
+    background-color: var(--secondary-txt);
     font-size: 12px;
 }
 
@@ -25,17 +24,25 @@
 
 .pagination [data-btn]:hover,
 .pagination [data-btn]:hover {
-    background-color: #FF6B08;
+    background-color: var(--btn-rating-bg);
 }
 
 .current {
-    color: #FFFFFF;
-    background-color: #FF6B08;
+    color: var(--secondary-txt);
+    background-color: var(--btn-rating-bg);
 }
 
-// .arrow{
-//     background-image: url(/src/img/arrow-left.svg);
-//     background-repeat: no-repeat;
-//     width: 16px;
-//     background-position: center;
-// }
+.left-arrow, 
+.right-arrow{
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: var(--footer-bg);
+}
+
+.left-arrow{
+    background-image: url(../img/arrow-left.svg);
+}
+
+.right-arrow{
+    background-image: url(../img/arrow-right.svg);
+}
