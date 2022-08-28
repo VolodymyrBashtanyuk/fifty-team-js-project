@@ -8,7 +8,6 @@ const imageURL = "https://image.tmdb.org/t/p/w500";
 function createOneObject(film) {
   const {title,genre_ids,poster_path,release_date} = film;
   const genreInCard = filmGenre(genre_ids);
-  console.log(genreInCard)
 
   return `
   <li class="film-card">
@@ -41,12 +40,3 @@ return arrayImages.reduce((acc,film)=>acc + createOneObject(film),"");
 
 };
 
-import { filmGenre } from './genre';
-import { response } from '../index';
-
-// function writeGenre() {
-//   getGenre();
-// return filmGenre();
-// }
-
-// const filmGenreInCard = writeGenre();

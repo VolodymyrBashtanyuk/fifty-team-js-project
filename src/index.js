@@ -17,8 +17,6 @@ async function movies(){
         console.log(response);
         console.log(genreResponse);
         saveGenre(genreResponse);
-        // getGenre();
-        filmGenre(response.results);
         insertCreatedObject(response.results);
         if(response.total_pages > 1) createPagination(response)
         spinner.removeSpinner();
@@ -30,6 +28,3 @@ async function movies(){
 
 movieDbApi.setPage(getCurrentPageLs())        
 movies();
-
-
-// export { response };
