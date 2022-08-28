@@ -1,8 +1,8 @@
 const cardFilm = document.querySelector('.gallery');
 
 const refsModal = {
-    modal: document.querySelector('.modal'),
-    backdrop: document.querySelector('.backdrop'),
+    modal: document.querySelector('.modal-movie'),
+    backdrop: document.querySelector('.backdrop-modal'),
     };
 
 
@@ -16,7 +16,7 @@ function openCardFilm (e) {
         return;
     } 
 
-refsModal.backdrop.classList.add('is-visible');
+refsModal.backdrop.classList.add('is-open');
 document.addEventListener('keydown', closeModalEsc);
 document.removeEventListener('click', closeModalEsc);
 
@@ -26,13 +26,14 @@ function closeModalEsc(evt) {
 
     if (evt.code === "Escape") {
 
-    refsModal.backdrop.classList.remove('is-visible');
+    refsModal.backdrop.classList.remove('is-open');
     document.removeEventListener('keydown', closeModalEsc);
     }
   };
 
 function closeModalClick() {
-    refsModal.backdrop.classList.remove('is-visible');
+    refsModal.backdrop.classList.remove('is-open');
     document.removeEventListener('keydown', closeModalEsc);
     document.removeEventListener('click', closeModalClick);
 };
+
