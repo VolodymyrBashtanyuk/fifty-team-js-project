@@ -16,13 +16,14 @@ function createModalFilm(data) {
       vote_count,
     } = data;
     
-  return `<button data-modal-close type="button" class="modal-movie-btn-close">
-                    <span>
-                        <svg class="modal-movie-img-close" width="11" height="11">
-                            <use href="./images/icons.svg#modal-close"></use>
-                        </svg>
-                    </span>
-                </button>
+  return `
+      <button data-modal-close type="button" class="modal-movie-btn-close">
+        <span>
+            <svg class="modal-movie-img-close">
+                <use href="./images/icons.svg#modal-close"></use>
+            </svg>
+        </span>
+      </button>
     <div class="modal-movie-cont">
 
       <div class="modal-movie-cont__img">
@@ -69,10 +70,7 @@ function createModalFilm(data) {
 
       </div>
 
-    </div>
-
-  </div>
-</div>`;
+    </div>`;
 };
 
 export default function createdCardFilm(data) {

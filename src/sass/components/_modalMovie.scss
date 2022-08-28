@@ -9,11 +9,11 @@
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  z-index: 100;
+  z-index: 10;
 
-  background-color: rgba(190, 207, 217, 0.518);
-  transition: opacity var(--animation-hover),
-    visibility var(--animation-hover);
+  background-color: rgba(190, 207, 217, 0.5);
+  // transition: opacity var(--animation-hover),
+  //   visibility var(--animation-hover);
 }
 
 .is-open.backdrop-modal {
@@ -26,6 +26,61 @@
   overflow: hidden;
   height: 100vh;
 }
+
+.modal-movie {
+  position: absolute;
+  width: 280px;
+  min-height: 500px;
+  top: 50%;
+  left: 50%;
+  padding: 48px 20px 40px 20px;
+  transform: translate(-50%, -50%);
+  background-color: var(--background-color);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+
+  @include mq(tablet) {
+    width: 704px;
+    min-height: 400px;
+    padding: 40px 72px 40px 36px;
+  }
+  @include mq(desktop) {
+    width: 806px;
+    min-height: 558px;
+    padding: 40px 12px;
+  }
+}
+
+  .modal-movie-btn-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 30px;
+  height: 30px;
+  background: var(--background-color);
+  fill: var(--primery-txt);
+
+  // color: var(--primery-txt);
+  box-sizing: border-box;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  transition-property: fill;
+
+  outline: 1px solid rgb(255, 0, 0);
+
+  &:hover .exit-btn__icon,
+  &:focus .exit-btn__icon {
+    fill: var(--btn-rating-bg);
+  }
+}
+
+.exit-btn__icon {
+  height: 14px;
+  width: 14px;
+}
+
 
 .modal-movie-img {
   margin-bottom: 20px;
@@ -40,6 +95,10 @@
     margin-right: 16px;
     width: 375px;
   }
+}
+
+.modal-movie-cont{
+display: flex;  
 }
 
 .modal-movie-cont__about {
