@@ -140,3 +140,52 @@
 .hide {
     display: none;
   }
+
+// My library header 
+.header__btns {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 62px;
+    @include mq(tablet) {
+        margin-top: 40px;
+    }
+}
+.header__btn {
+    width: 130px;
+    height: 44px;
+    border: 1px solid var(--secondary-txt);
+    border-radius: 5px;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    @include mq(tablet) {
+        width: 152px;
+    }
+}
+.header__btn:hover,
+.header__btn:focus {
+    background-color: var(--btn-rating-bg);
+    box-shadow: 0px 8px 43px rgba(255, 107, 1, 0.6);
+    border: transparent;
+}
+.header__btn:last-child {
+    margin-left: 20px;
+    @include mq(tablet) {
+        margin-left: 32px;
+    }
+    @include mq(desktop) {
+        margin-left: 16px;
+    }
+}
+.header__btn--watched,
+.header__btn--queue {
+    background-color: transparent;
+    font-size: 12px;
+    line-height: 1.33;
+    text-transform: uppercase;
+    color: var(--secondary-txt);
+}
