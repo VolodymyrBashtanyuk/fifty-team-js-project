@@ -3,6 +3,7 @@ import insertCreatedObject from './js/createOneObject'
 import spinner from './js/preLoader'
 
 
+
 import {createPagination} from "./js/createPagination"
 
 
@@ -50,3 +51,10 @@ async function oneMovies(e) {
     console.log(oneMovieResponse)
     };
 
+    
+    
+    
+
+
+    
+    
