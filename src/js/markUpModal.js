@@ -1,6 +1,4 @@
-// import { galleryMovies } from ''
-
-export function createModalFilm(data) {
+export default function createModalFilm(data) {
     const {
       movieTitle,
       popularity,
@@ -71,6 +69,4 @@ export function createModalFilm(data) {
 
   </div>
 </div>`;
-    
-  // galleryMovies.innerHTML = markUp;
 }
