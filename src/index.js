@@ -1,7 +1,7 @@
 import theMovieDbApi from "./js/fetchMovies";
 import insertCreatedObject from './js/createOneObject'
 import spinner from './js/preLoader'
-import { saveGenre } from './js/genre';
+import { getGenre, saveGenre } from './js/genre';
 
 
 import { createPagination } from "./js/createPagination"
@@ -24,7 +24,10 @@ async function movies() {
         const genreResponse = await movieDbApi.fetchGenres();
         console.log(response);
         console.log(genreResponse);
-           saveGenre(genreResponse);
+        const conditionKeyGenre = getGenre();
+        if (conditionKeyGenre === undefined) {
+            saveGenre(genreResponse);
+        }
 
         insertCreatedObject(response.results)
         spinner.removeSpinner();
