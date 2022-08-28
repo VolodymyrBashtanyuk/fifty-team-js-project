@@ -146,7 +146,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 60px;
+    margin-top: 62px;
     @include mq(tablet) {
         margin-top: 40px;
     }
@@ -160,9 +160,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 
     @include mq(tablet) {
-        width: 150px;
+        width: 152px;
     }
 }
 .header__btn:hover,
@@ -174,16 +175,11 @@
 .header__btn:last-child {
     margin-left: 20px;
     @include mq(tablet) {
-        margin-left: 34px;
+        margin-left: 32px;
     }
     @include mq(desktop) {
         margin-left: 16px;
     }
-}
-.header__btnlink {
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 .header__btn--watched,
 .header__btn--queue {
