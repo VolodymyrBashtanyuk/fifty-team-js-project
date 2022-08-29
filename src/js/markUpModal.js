@@ -18,12 +18,11 @@ function createModalFilm(data) {
     
   return `
       <button data-modal-close type="button" class="modal-movie-btn-close">
-        <span>
-            <svg class="modal-movie-img-close">
-                <use href="./images/icons.svg#modal-close"></use>
-            </svg>
-        </span>
+          <svg class="modal-movie-img-close">
+              <use href="./images/icon-close-modal.svg#modal-close"></use>
+          </svg>
       </button>
+
     <div class="modal-movie-cont">
 
       <div class="modal-movie-cont__img">
@@ -37,26 +36,29 @@ function createModalFilm(data) {
           <table class="modal-movie-table">
           <tbody>
             <tr>
-              <td class="modmodal-movie-table__item-name">Vote / Votes</td>
-              <td class="modmodal-movie-table__item-value"><span class="vote">${vote_average.toFixed(1)}</span class="votes">/${vote_count}</td>
+              <td class="modal-movie-table__item-name">Vote / Votes</td>
+              <td class="modal-movie-table__item-value">
+                <span class="vote">${vote_average.toFixed(1)}</span> / 
+                <span class="votes">${vote_count}</span>
+              </td>
             </tr>
             <tr>
-              <td class="modmodal-movie-table__item-name">Popularity</td>
-              <td class="modmodal-movie-table__item-descr">${popularity.toFixed(1)}</td>
+              <td class="modal-movie-table__item-name">Popularity</td>
+              <td class="modal-movie-table__item-value">${popularity.toFixed(1)}</td>
             </tr>
             <tr>
-              <td class="modmodal-movie-table__item-name">Original Title</td>
-              <td class="modmodal-movie-table__item-descr">${original_title}</td>
+              <td class="modal-movie-table__item-name">Original Title</td>
+              <td class="modal-movie-table__item-value">${original_title}</td>
             </tr>
             <tr>
-              <td class="modmodal-movie-table__item-name">Genre</td>
-              <td class="modmodal-movie-table__item-descr">${genre}</td>
+              <td class="modal-movie-table__item-name">Genre</td>
+              <td class="modal-movie-table__item-value">${genre}</td>
             </tr>
           </tbody>
           </table>
 
-          <h3 class="modmodal-movie-about">ABOUT</h3>
-          <p class="modmodal-movie-descr-movie">${overview}</p>
+          <h3 class="modal-movie-about">ABOUT</h3>
+          <p class="modal-movie-descr-movie">${overview}</p>
         </div>
       
         <ul class="modal-movie__btn-list">
