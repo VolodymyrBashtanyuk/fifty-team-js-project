@@ -4,78 +4,59 @@
     top: 0;
     width: 100vw;
     height: 100vh;
+   
     background: rgba(0, 0, 0, 0.2);
     opacity: 1;
     visibility: visible;
     transition: opacity  var(--animation-hover) visibility  var(--animation-hover),
         transform  var(--animation-hover);
-    z-index: 20;
-    // &.is-hidden {
-    //     opacity: 0;
-    //     pointer-events: none;
-    //     visibility: hidden;
-    // }
+    // z-index: 20;
+    &.is-hidden {
+        opacity: 0;
+        pointer-events: none;
+        visibility: hidden;
+    }
+   
 }
 .backdrop__container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    // display: flex;
+    // // flex-wrap: wrap;
     width: 100%;
-    height: 100%;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%) scale(1);
-         background-color: #fff;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    
+    transform: translate(-50%, -50%) scale(1);
+    background-color:var(--background-color);
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
         0px 2px 1px rgba(0, 0, 0, 0.2);
     border-radius: 4px;
     transition: transform var(--animation-hover);
-    // .backdrop.is-hidden & {
-    //     transform: translate(-50%, -50%) scale(0.5);
-    // }
+    z-index: 20;
+    .backdrop.is-hidden & {
+        transform: translate(-50%, -50%) scale(0.5);
+    }
 }
-
-// .backdrop__form {
-//     width: 100%;
-//     position: absolute;
-//     top: 50%;
-//     left: 50%;
-//     transform: translate(-50%, -50%) scale(1);
-//     // background-color: $main-background;
-//     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
-//         0px 2px 1px rgba(0, 0, 0, 0.2);
-//     border-radius: 4px;
-//     // transition: transform 250ms $timing-function;
-//     .backdrop.is-hidden & {
-//         transform: translate(-50%, -50%) scale(0.5);
-//     }
-//     @media screen and (min-width: 480px) {
-//         width: 450px;
-//         height: 609px;
-//     }
-//     @media screen and (min-width: 1200px) {
-//         width: 528px;
-//         height: 581px;
-//     }
-// }
-// .backdrop__button {
-//     position: absolute;
-//     top: 4px;
-//     right: 20px;
-//     padding: 0;
-//     width: 30px;
-//     height: 30px;
-//     border: 1px solid rgba(0, 0, 0, 0.1);
-//     border-radius: 50%;
-//     background-color:$main-background;
-//     cursor: pointer;
-//     // &:hover, &:focus {
-//     //     // color: $color-accent;
-//     // }
-//     @media screen and(min-width: 480px) {
-//         top: 8px;
-//         right: 8px;
-//     }
-// }
-// .backdrop__icon {
-//     fill: currentColor;
-//     // transition: color 250ms;
-// }
+.backdrop__list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.backdrop__img {
+    display: block;
+    border-radius: 50%;
+}
+.backdrop__button {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5px 25px;
+    margin-bottom: 10px;
+    border: transparent;
+    background-color: var(--btn-rating-bg)
+}

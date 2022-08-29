@@ -26,3 +26,41 @@ async function movies(){
 
 movieDbApi.setPage(getCurrentPageLs())        
 movies();
+
+
+const footerButtom = document.querySelector('.footer__btn');
+const backdropFooter = document.querySelector('.backdrop');
+// const backdropContainer = document.querySelector('.backdrop__container')
+
+footerButtom.addEventListener('click', onOpenFooterButtom);
+backdropFooter.addEventListener('click', onCloseModal);
+
+function onOpenFooterButtom(){
+    backdropFooter.classList.remove('is-hidden');
+    backdropFooter.setAttribute('tabindex', 1);
+    document.body.style.overflow = 'hidden';
+    footerButtom.setAttribute('tabindex', -1);
+}
+
+function onCloseModal(e){
+    const closeByButton = e.target.classList.contains('backdrop__button');
+    const closeByBackdrop =  e.target.classList.contains('backdrop');
+
+    document.addEventListener('keydown', onCloseByEscape);  
+    function onCloseByEscape (event) {
+        if (event.code === 'Escape') {
+            backdropFooter.classList.add('is-hidden');
+            document.removeEventListener('keydown', onCloseByEscape);
+         };
+      };
+
+    if(!closeByButton && !closeByBackdrop){
+        return;
+    }else{
+        backdropFooter.classList.add('is-hidden');
+        document.body.style.overflow = 'visible';
+    };
+
+}
+
+
