@@ -28,7 +28,7 @@ function createArr(start, end) {
         }
     }
 
-    if (res[0] === 3) res.unshift(2)
+    // if (res[0] === 3) res.unshift(2)
     if (res[0] === 2) res.unshift(1)
     if (res[0] > 3) res.unshift(1, 0)
 
@@ -36,33 +36,27 @@ function createArr(start, end) {
     if (res[res.length - 1] === end - 2) res.push(end - 1)
     if (res[res.length - 1] === end - 3) res.push(end - 2)
 
-    res.unshift('<')
-    res.push('>')
     return res;
 }
 
 
 function renderPagination(elems, current, lastPage) {
     const markup = elems.map((index) => {
-        if (index === 0) {
-    return `<li ><div class = "empryBox">...</div></li>`    
-        }
-    
-    return `<li ><button type="button" class = "${index === current ? 'current' : ''} ${(index === '<') || (index === '>') ? 'arrow' : ''}" data-btn="${index}">${index}</button></li>`
-    }).join('')
+        if (index === 0) return `<li class = "pagination__item"><div class = "empryBox">...</div></li>`    
+        if (index === 1) return `<li class = "pagination__item"><button type="button" class = "${index === current ? 'current' : ''} firstPage" data-btn="${index}">${index}</button></li>`
+        if (index === lastPage) return `<li class = "pagination__item"><button type="button" class = "${index === current ? 'current' : ''} lastPage" data-btn="${index}">${index}</button></li>`
 
-    // const paginationMarkup = `<ul class="pagination">${markup}</ul>`
+        return `<li class = "pagination__item"><button type="button" class = "${index === current ? 'current' : ''}" data-btn="${index}">${index}</button></li>`
+    })
 
-    // gallery.insertAdjacentHTML('afterend',paginationMarkup)
-    paginationEl.innerHTML = markup;
+    markup.unshift(`<li class = "pagination__item"><button type="button" class = "left-arrow" data-btn="<"></button></li>`)
+    markup.push(`<li class = "pagination__item"><button type="button" class = "right-arrow" data-btn=">"></button></li>`)
+    paginationEl.innerHTML = markup.join('');
     paginationEl.dataset.lastpage = lastPage
 }
 
 
 function onPaginationClick(e) {
-    // lastPage = e.currentTarget.dataset.lastpage
-    // console.log(lastPage);
-    // console.log(e.target.nodeName);
     if (e.target.nodeName === 'DIV' || e.target.nodeName !== 'BUTTON') return
     
     if (e.target.classList.contains('current')) return
@@ -83,13 +77,9 @@ function onPaginationClick(e) {
     }
     
     currentPage = nextPage
-    // console.log('currentPage', currentPage);
-    // console.log('nextPage', nextPage);
     saveCurrentPageLs(currentPage)
     movieDbApi.setPage(nextPage)
     movies();
-    // renderPagination(createArr(nextPage, lastPage), nextPage)
-
 }
 
 async function movies() {
