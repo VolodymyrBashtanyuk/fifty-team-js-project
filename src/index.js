@@ -1,66 +1,92 @@
 import theMovieDbApi from "./js/fetchMovies";
 import insertCreatedObject from './js/createOneObject'
 import spinner from './js/preLoader'
+import { getGenre, saveGenre } from './js/genre';
 
 
-import {createPagination, getCurrentPageLs} from "./js/createPagination"
+
+import { createPagination } from "./js/createPagination"
+
+
+import { createPagination, getCurrentPageLs } from "./js/createPagination"
+
 
 const movieDbApi = new theMovieDbApi();
 
+const cardOneFilm = document.querySelector('.gallery');
+cardOneFilm.addEventListener('click', oneMovies);
+import openCardFilm from './js/openCardFilm'
+import createdCardFilm from "./js/markUpModal";
 
-async function movies(){
+import addToWatchedFilm from "./js/localStorageToWatchedFilm";
+import addToQueueFilm from "./js/localStorageToQueueFilm";
+import removeStorageWatchedFilm from './js/localStorageToWatchedFilm';
+import removeStorageQueueFilm from './js/localStorageToQueueFilm';
+
+async function movies() {
+
     spinner.startSpinner();
-    try{
+    try {
         const response = await movieDbApi.fetchMovies();
         const genreResponse = await movieDbApi.fetchGenres();
         console.log(response);
         console.log(genreResponse);
+        const conditionKeyGenre = getGenre();
+        if (conditionKeyGenre === undefined) {
+            saveGenre(genreResponse);
+        }
+
         insertCreatedObject(response.results)
-        if(response.total_pages > 1) createPagination(response)
         spinner.removeSpinner();
-        
-    }catch(error){
+
+        createPagination(response)
+
+        insertCreatedObject(response.results)
+        if (response.total_pages > 1) createPagination(response)
+        spinner.removeSpinner();
+
+
+    } catch (error) {
         console.log(error)
     };
 };
 
-movieDbApi.setPage(getCurrentPageLs())        
+movieDbApi.setPage(getCurrentPageLs())
 movies();
 
+async function oneMovies(e) {
 
-const footerButtom = document.querySelector('.footer__btn');
-const backdropFooter = document.querySelector('.backdrop');
-// const backdropContainer = document.querySelector('.backdrop__container')
+    try {
+        const id = e.target.parentNode.parentNode.id;
+        const oneMovieResponse = await movieDbApi.fetchOneMovie(id);
+    
+        createdCardFilm(oneMovieResponse);
+        console.log(oneMovieResponse);
 
-footerButtom.addEventListener('click', onOpenFooterButtom);
-backdropFooter.addEventListener('click', onCloseModal);
+    document.addEventListener('click', localStorageFilmData)
 
-function onOpenFooterButtom(){
-    backdropFooter.classList.remove('is-hidden');
-    backdropFooter.setAttribute('tabindex', 1);
-    document.body.style.overflow = 'hidden';
-    footerButtom.setAttribute('tabindex', -1);
+    function localStorageFilmData(evt) {
+     const btn = evt.target;  
+      
+    if (evt.target.className === 'btn-watched') {
+        
+        addToWatchedFilm(oneMovieResponse);
+        btn.textContent = 'remove watched film';
+       
+         console.log('Click!');
+         document.removeEventListener('click', localStorageFilmData);
+        } 
+        else if(evt.target.className === 'btn-queue') {
+         addToQueueFilm(oneMovieResponse);
+         btn.textContent = 'remove queued film';
+         console.log('Click!2');
+         document.removeEventListener('click', localStorageFilmData)
+        }
+        
 }
-
-function onCloseModal(e){
-    const closeByButton = e.target.classList.contains('backdrop__button');
-    const closeByBackdrop =  e.target.classList.contains('backdrop');
-
-    document.addEventListener('keydown', onCloseByEscape);  
-    function onCloseByEscape (event) {
-        if (event.code === 'Escape') {
-            backdropFooter.classList.add('is-hidden');
-            document.removeEventListener('keydown', onCloseByEscape);
-         };
-      };
-
-    if(!closeByButton && !closeByBackdrop){
-        return;
-    }else{
-        backdropFooter.classList.add('is-hidden');
-        document.body.style.overflow = 'visible';
+       
+    } catch(error) {
+        console.log(error);
     };
-
-}
-
+    };
 
