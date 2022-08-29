@@ -1,12 +1,14 @@
 import theMovieDbApi from "./js/fetchMovies";
 import insertCreatedObject from './js/createOneObject'
 import spinner from './js/preLoader'
+import { getGenre, saveGenre } from './js/genre';
 
 
-import {createPagination} from "./js/createPagination"
+
+import { createPagination } from "./js/createPagination"
 
 
-import {createPagination, getCurrentPageLs} from "./js/createPagination"
+import { createPagination, getCurrentPageLs } from "./js/createPagination"
 
 
 const movieDbApi = new theMovieDbApi();
@@ -21,32 +23,39 @@ import addToQueueFilm from "./js/localStorageToQueueFilm";
 import removeStorageWatchedFilm from './js/localStorageToWatchedFilm';
 import removeStorageQueueFilm from './js/localStorageToQueueFilm';
 
-async function movies(){
-    spinner.startSpinner();
-    try{
-       const response = await movieDbApi.fetchMovies();
-       const genreResponse = await movieDbApi.fetchGenres();
-       console.log(response);
-       console.log(genreResponse);
-       insertCreatedObject(response.results)
-       spinner.removeSpinner();
+async function movies() {
 
-     createPagination(response)
+    spinner.startSpinner();
+    try {
+        const response = await movieDbApi.fetchMovies();
+        const genreResponse = await movieDbApi.fetchGenres();
+        console.log(response);
+        console.log(genreResponse);
+        const conditionKeyGenre = getGenre();
+        if (conditionKeyGenre === undefined) {
+            saveGenre(genreResponse);
+        }
 
         insertCreatedObject(response.results)
-        if(response.total_pages > 1) createPagination(response)
         spinner.removeSpinner();
-        
 
-    }catch(error){
+        createPagination(response)
+
+        insertCreatedObject(response.results)
+        if (response.total_pages > 1) createPagination(response)
+        spinner.removeSpinner();
+
+
+    } catch (error) {
         console.log(error)
     };
 };
 
-movieDbApi.setPage(getCurrentPageLs())        
+movieDbApi.setPage(getCurrentPageLs())
 movies();
 
 async function oneMovies(e) {
+
     try {
         const id = e.target.parentNode.parentNode.id;
         const oneMovieResponse = await movieDbApi.fetchOneMovie(id);
@@ -80,3 +89,9 @@ async function oneMovies(e) {
         console.log(error);
     };
     };
+
+    const id = e.target.parentNode.parentNode.id;
+    const oneMovieResponse = await movieDbApi.fetchOneMovie(id);
+    createdCardFilm(oneMovieResponse);
+    console.log(oneMovieResponse)
+};
