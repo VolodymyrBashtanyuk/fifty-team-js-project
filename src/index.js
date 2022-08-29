@@ -90,8 +90,3 @@ async function oneMovies(e) {
     };
     };
 
-    const id = e.target.parentNode.parentNode.id;
-    const oneMovieResponse = await movieDbApi.fetchOneMovie(id);
-    createdCardFilm(oneMovieResponse);
-    console.log(oneMovieResponse)
-};
