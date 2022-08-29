@@ -4,6 +4,7 @@ import spinner from './js/preLoader'
 import { getGenre, saveGenre } from './js/genre';
 
 
+
 import { createPagination } from "./js/createPagination"
 
 
@@ -56,3 +57,10 @@ async function oneMovies(e) {
     console.log(oneMovieResponse)
 };
 
+    
+    
+    
+
+
+    
+    
