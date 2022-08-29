@@ -1,12 +1,16 @@
 const refs = {
-    gallery:document.querySelector('.gallery')
+  gallery: document.querySelector('.gallery'),
+  btnEtc: document.querySelector(".btn__etc"),
+  oneFilmGenre: document.querySelector(".film__genre"),
+
 }
-// const btnEtc = document.addEventListener(".btn__etc");
 
 import { filmGenre } from './genre'
 
 const noImg ='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQT6UB-bP8Q1VOTxmMLs-1v1d6LN4b7H7U3Ng&usqp=CAU';
 const imageURL = "https://image.tmdb.org/t/p/w500";
+
+// refs.gallery.addEventListener('click', onListenerBtnEtc);
 
 function createOneObject(film) {
   const { title, genre_ids, poster_path, release_date, id } = film;
@@ -17,6 +21,8 @@ function createOneObject(film) {
   // if (arrayGenreInCard.lenght <= 3) {   
   //   btnEtc.classList.add(hide);
   // }
+  
+  
 
 return `
 <li class="film-card" id = ${id}>
@@ -30,8 +36,9 @@ return `
     </div>
     <p class="info-title">${title ?? ''}</p>
     <div class="info-title info-item">
-      <p class="">${genreInCard ? genreInCard : ''}
-      <button class="btn__etc ${arrayGenreInCard.length <= 3 ? 'hide' : ''}">...</button>
+      <p class="film__genre">${genreInCard ? genreInCard : ''}
+      <button class="btn__etc ${arrayGenreInCard.length <= 3 ? 'hide' : ''}" type="button"
+        data-all_ganre="${genreInString}">...</button>
 
       </p>
       <p class="">${release_date.slice(0,4) ?? ''}
@@ -41,16 +48,13 @@ return `
 </li>
 `};
 
-// if (arrayGenreInCard.lenght <= 3) {   
-//     btnEtc.classList.add(hide);
-//   }
 
 function generateMarkup (arrayImages){
 
 return arrayImages.reduce((acc,film)=>acc + createOneObject(film),"");
 };
 
- export  default function insertCreatedObject (arrayImages) {
+function insertCreatedObject (arrayImages) {
   const result = generateMarkup(arrayImages);
   refs.gallery.innerHTML = result;
  
@@ -65,5 +69,5 @@ function smartGenre(arrayGenreInCard, genreInString) {
     return cutGenre; 
 }
 
-// function isH
+export { refs, insertCreatedObject };
 

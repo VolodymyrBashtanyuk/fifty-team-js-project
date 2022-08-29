@@ -1,5 +1,6 @@
 import theMovieDbApi from "./js/fetchMovies";
-import insertCreatedObject from './js/createOneObject'
+import { refs, insertCreatedObject } from './js/createOneObject'
+import onListenerBtnEtc from './js/etcGenre'
 import spinner from './js/preLoader'
 import { getGenre, saveGenre } from './js/genre';
 
@@ -37,6 +38,8 @@ async function movies() {
         }
 
         insertCreatedObject(response.results)
+        refs.gallery.addEventListener('click', onListenerBtnEtc);
+
         spinner.removeSpinner();
 
         createPagination(response)
