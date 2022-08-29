@@ -37,11 +37,6 @@ async function movies() {
         }
 
         insertCreatedObject(response.results)
-        spinner.removeSpinner();
-
-        createPagination(response)
-
-        insertCreatedObject(response.results)
         if (response.total_pages > 1) createPagination(response)
         spinner.removeSpinner();
 
