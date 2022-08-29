@@ -2,9 +2,14 @@
     display: flex;
     list-style: none;
     justify-content: center;
-    margin: 60px 0;
     padding: 0;
+    margin: 40px 0;
+    @include mq(tablet){
+        margin: 60px 0;
+    }
 }
+
+
 
 [data-btn],
 .empryBox {
@@ -17,10 +22,27 @@
 }
 
 .empryBox {
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
+    @include mq(tablet){
+        display: flex;
+    }
 }
+
+.firstPage,
+.lastPage{
+    display: none;
+    @include mq(tablet) {
+        display: block;
+    }
+}
+
+.firstPage.current,
+.lastPage.current{
+    display: block;
+}
+
 
 .pagination [data-btn]:hover,
 .pagination [data-btn]:hover {

@@ -28,7 +28,7 @@ function createArr(start, end) {
         }
     }
 
-    if (res[0] === 3) res.unshift(2)
+    // if (res[0] === 3) res.unshift(2)
     if (res[0] === 2) res.unshift(1)
     if (res[0] > 3) res.unshift(1, 0)
 
@@ -42,15 +42,15 @@ function createArr(start, end) {
 
 function renderPagination(elems, current, lastPage) {
     const markup = elems.map((index) => {
-        if (index === 0) {
-    return `<li ><div class = "empryBox">...</div></li>`    
-        }
-    
-    return `<li ><button type="button" class = "${index === current ? 'current' : ''}" data-btn="${index}">${index}</button></li>`
+        if (index === 0) return `<li class = "pagination__item"><div class = "empryBox">...</div></li>`    
+        if (index === 1) return `<li class = "pagination__item"><button type="button" class = "${index === current ? 'current' : ''} firstPage" data-btn="${index}">${index}</button></li>`
+        if (index === lastPage) return `<li class = "pagination__item"><button type="button" class = "${index === current ? 'current' : ''} lastPage" data-btn="${index}">${index}</button></li>`
+
+        return `<li class = "pagination__item"><button type="button" class = "${index === current ? 'current' : ''}" data-btn="${index}">${index}</button></li>`
     })
 
-    markup.unshift(`<li ><button type="button" class = "left-arrow" data-btn="<"></button></li>`)
-    markup.push(`<li ><button type="button" class = "right-arrow" data-btn=">"></button></li>`)
+    markup.unshift(`<li class = "pagination__item"><button type="button" class = "left-arrow" data-btn="<"></button></li>`)
+    markup.push(`<li class = "pagination__item"><button type="button" class = "right-arrow" data-btn=">"></button></li>`)
     paginationEl.innerHTML = markup.join('');
     paginationEl.dataset.lastpage = lastPage
 }
