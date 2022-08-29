@@ -14,13 +14,30 @@
         flex-basis: calc((100% - 3 * 16px) / 3);
         margin: 16px 8px;
     }
+
+        transition: transform var(--animation-hover), text-shadow var(--animation-hover);
+
+        &:focus,
+        &:hover {
+            transform: scale(1.03);
+        }
 }
+
+// .film-card:hover,
+// .film-card:focus {
+// transform: scale(1.03);
+// }
 
 .poster {
     display: block;
     width: 100%;
     height: auto;
     border-radius: 5px;
+
+        // .film-card:focus &,
+        // .film-card:hover & {
+        //     transform: scale(1.03);
+        //     }
 }
 
 .film-card > p {
