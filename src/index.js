@@ -37,7 +37,7 @@ async function movies() {
             saveGenre(genreResponse);
         }
 
-        insertCreatedObject(response.results)
+        insertCreatedObject(response.results);
         refs.gallery.addEventListener('click', onListenerBtnEtc);
 
         spinner.removeSpinner();

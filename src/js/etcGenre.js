@@ -1,14 +1,12 @@
-import { refs } from './createOneObject'
-const oneFilmGenre = document.querySelector('.film__genre');
-
 export default function onListenerBtnEtc(e) {
-  e.preventDefault();
+    e.preventDefault();
+    const btnEtc = document.querySelectorAll('.btn__etc');
+
     if (e.target.nodeName !== "BUTTON") {
         return;
     }
 
     const filmAllGenre = e.target.dataset.all_ganre;
-    console.log(filmAllGenre);
-    console.log(oneFilmGenre.textContent);
-    oneFilmGenre.textContent = `${filmAllGenre}`;
+    e.target.previousSibling.previousSibling.textContent = `${filmAllGenre}`;
+    e.target.classList.add('hide');
 }
