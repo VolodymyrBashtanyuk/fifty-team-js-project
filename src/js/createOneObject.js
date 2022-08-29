@@ -12,7 +12,7 @@ function createOneObject(film){
 
 return `
 <li class="film-card" id = ${id}>
-  <a href=''></a>
+  <a href=''>
   ${poster_path ? 
     `<img class="poster" src="${imageURL}${poster_path}" alt="${title}"  />` : 
     `<img class="poster" src=${noImg} alt="${title}" />`
