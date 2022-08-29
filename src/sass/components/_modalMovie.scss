@@ -65,6 +65,7 @@
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   outline: 1px solid #f00;
+  fill: #f00;
 
   &:hover .modal-movie-img-close,
   &:focus .modal-movie-img-close {
@@ -73,6 +74,8 @@
 }
 
 .modal-movie-img-close {
+  // fill: #f00;
+
   height: 18px;
   width: 18px;
 }
