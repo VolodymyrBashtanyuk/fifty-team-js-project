@@ -7,7 +7,9 @@ const refsModal = {
 
 
 cardFilm.addEventListener('click', openCardFilm);
-refsModal.backdrop.addEventListener('click', closeModalClick);
+
+// refsModal.backdrop.addEventListener('click', closeModalClick);
+
 
 function openCardFilm (e) {
     e.preventDefault();
@@ -32,8 +34,7 @@ function closeModalEsc(evt) {
   };
 
 function closeModalClick() {
-    refsModal.backdrop.classList.remove('is-open');
-    document.removeEventListener('keydown', closeModalEsc);
+        refsModal.backdrop.classList.remove('is-open');
+        document.removeEventListener('keydown', closeModalEsc);
     document.removeEventListener('click', closeModalClick);
 };
-
