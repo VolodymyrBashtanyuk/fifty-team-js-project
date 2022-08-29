@@ -1,16 +1,19 @@
 .footer{
     display: flex;
+    
     text-align: center; 
     flex-direction: column;
     justify-content: center;
     font-weight: 400;
     font-size: 14px;
-    line-height: 16px;
+    line-height: 1.14;
     width: 100%;
     height: 100px;
     @include mq(tablet) {
         flex-direction: row;
         align-items: center;
+        font-size: 16px;
+        line-height: 1.18;
       }
 
     color: var(--footer-txt);

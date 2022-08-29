@@ -2,6 +2,7 @@ import theMovieDbApi from "./js/fetchMovies";
 import insertCreatedObject from './js/createOneObject'
 import spinner from './js/preLoader'
 import { getGenre, saveGenre } from './js/genre';
+import footer from './js/modalFooter';
 
 
 
@@ -54,6 +55,7 @@ async function movies() {
 movieDbApi.setPage(getCurrentPageLs())
 movies();
 
+
 async function oneMovies(e) {
 
     try {
@@ -90,3 +92,4 @@ async function oneMovies(e) {
     };
     };
 
+footer;
