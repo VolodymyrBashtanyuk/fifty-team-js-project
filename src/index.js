@@ -54,9 +54,7 @@ async function oneMovies(e) {
         createdCardFilm(oneMovieResponse);
         console.log(oneMovieResponse);
 
-
     document.addEventListener('click', localStorageFilmData)
-
 
     function localStorageFilmData(evt) {
      const btn = evt.target;  
