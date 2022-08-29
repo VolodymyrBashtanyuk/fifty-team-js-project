@@ -28,7 +28,7 @@ function createArr(start, end) {
         }
     }
 
-    if (res[0] === 3) res.unshift(2)
+    // if (res[0] === 3) res.unshift(2)
     if (res[0] === 2) res.unshift(1)
     if (res[0] > 3) res.unshift(1, 0)
 
@@ -91,7 +91,7 @@ async function movies() {
         insertCreatedObject(response.results)
         createPagination(response)
         spinner.removeSpinner()
-        // smoothScrool()
+        smoothScrool()
 
     }catch(error){
         console.log(error)
