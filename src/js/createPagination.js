@@ -1,8 +1,10 @@
 import theMovieDbApi from "./fetchMovies";
-const movieDbApi = new theMovieDbApi();
+// const movieDbApi = new theMovieDbApi();
+import {movieDbApi} from "../index"
 import {insertCreatedObject} from './createOneObject';
 import spinner from './preLoader'
-// import {movies, oneMovies} from "../index"
+// import {oneMovies} from "../index"
+import {filterResults} from "./keywordSearch"
 
 
 let currentPage;
@@ -76,13 +78,26 @@ function onPaginationClick(e) {
     if (e.target.dataset.btn === '>' && currentPage < lastPage) {
         nextPage = currentPage += 1
     }
+
+        currentPage = nextPage
+        const type = getQueryTypeLs().queryType
+        console.log(type);
+    if (type === 'getMovies') {
     
-    currentPage = nextPage
     // const lsCurrentPage = getCurrentPageLs();
     // console.log(lsCurrentPage);
     saveCurrentPageLs(currentPage)
     movieDbApi.setPage(nextPage)
-    movies();
+    movies();    
+    }
+
+    if (type === 'getOneMovie') {console.log('start next avatar', currentPage);
+        console.log(movieDbApi);
+        // movieDbApi.fetchMovieName()
+        movieDbApi.setPage(currentPage)
+        movieDbApi.fetchMovieName().then(data => filterResults(data))
+    }
+
 }
 
 async function movies() {
@@ -108,11 +123,27 @@ function smoothScrool() {
    })
 }
 
-function saveCurrentPageLs(page,search) {
+function saveCurrentPageLs(page) {
     try {
-        localStorage.setItem(LS_CURRENT_PAGE_KEY, JSON.stringify({currentPage: page, currentSearch: search}))
+        localStorage.setItem(LS_CURRENT_PAGE_KEY, JSON.stringify({currentPage: page}))
     } catch (error) {
         console.log(error);
+    }
+}
+
+function saveQueryTypeLs(type) {
+    try {
+    localStorage.setItem('queryType', JSON.stringify({queryType: type}));        
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+function getQueryTypeLs() {
+    try {
+        return JSON.parse(localStorage.getItem('queryType'))
+    } catch (error) {
+        console.log(error);        
     }
 }
 
@@ -136,4 +167,4 @@ function getCurrentPageLs() {
     }
 }
 
-export {createPagination, getCurrentPageLs}
+export {createPagination, getCurrentPageLs, saveQueryTypeLs}

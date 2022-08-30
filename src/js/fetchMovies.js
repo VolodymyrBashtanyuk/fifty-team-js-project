@@ -7,6 +7,7 @@ export default class theMovieDbApi {
   this.INFO_URL = 'movie/';
   this.SEARCH_URL = 'search/movie';
   this.GENRE_URL = '/genre/movie/list';
+    this.FETCH_QUERY = '';
 }
 
 async fetchMovies(){
@@ -33,12 +34,16 @@ async fetchOneMovie(id) {
 }
 
 async fetchMovieName(searchName) {
-    const fetchResult = await fetch(`${this.BASE_URL}search/movie?api_key=${this.KEY}&language=en-US&include_adult=false&query=${searchName}`);
+    const fetchResult = await fetch(`${this.BASE_URL}search/movie?api_key=${this.KEY}&language=en-US&include_adult=false&query=${this.FETCH_QUERY}&page=${this.page}`);
     const oneSearchMovie = await fetchResult.json();
     return oneSearchMovie;
 }
 getPage(){
     return this.page;
+    }
+    
+setQuery(query) {
+    this.FETCH_QUERY = query
 }
 
 setPage(newPage){

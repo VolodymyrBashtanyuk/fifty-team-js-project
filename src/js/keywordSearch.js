@@ -1,4 +1,4 @@
-import { createPagination } from "./createPagination";
+import { createPagination, saveQueryTypeLs } from "./createPagination";
 import { insertCreatedObject} from './createOneObject';
 import spinner from './preLoader';
 
@@ -13,10 +13,12 @@ export function filterResults(searchMovie) {
     return;
 } else if (searchMovie.total_results > 0){
     insertCreatedObject(searchMovie.results);
-} else if (searchMovie.total_pages > 1) {
+  }
+  if (searchMovie.total_pages > 1) 
+    saveQueryTypeLs('getOneMovie')
     createPagination(searchMovie);
     spinner.removeSpinner();
-}
+
 }
 export function onInputChange(e) {
   const inputQuery = e.target.value;
