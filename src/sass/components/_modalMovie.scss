@@ -278,13 +278,11 @@ margin-bottom: 8px;
     transform: scale(1.05);
     background-color: rgba(255, 255, 255, 0.9);
   }
-
-  @include mq(mobile-only) {
-    font-size: 12px;
-  }
+  
 
   @include mq(mobile) {
     height: 44px;
+    font-size: 12px;
   }
 
   @include mq(tablet) {
