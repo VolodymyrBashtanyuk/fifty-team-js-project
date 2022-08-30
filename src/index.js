@@ -7,7 +7,9 @@ import { getGenre, saveGenre } from './js/genre';
 
 import etsGenre from './js/etcGenre';
 
+import {refs, filterResults} from './js/keywordSearch';
 import footer from './js/modalFooter';
+
 
 
 import { createPagination } from "./js/createPagination"
@@ -61,7 +63,7 @@ async function oneMovies(e) {
 
     try {
         const id = e.target.parentNode.parentNode.id;
-        const oneMovieResponse = await movieDbApi.fetchOneMovie('id');
+        const oneMovieResponse = await movieDbApi.fetchOneMovie(id);
         console.log(oneMovieResponse);
         createdCardFilm(oneMovieResponse);
         console.log(oneMovieResponse);
@@ -93,3 +95,18 @@ async function oneMovies(e) {
         console.log(error);
     };
     };
+
+
+refs.form.addEventListener('submit', onFormSubmit);
+async function onFormSubmit (e) {
+    e.preventDefault();
+    refs.falseresultMessage.classList.add('hide');
+    const searchName = e.currentTarget.elements.search.value;
+    try {
+        const searchMovie = await movieDbApi.fetchMovieName(searchName);
+        filterResults(searchMovie);
+        }
+    catch (error) {
+            console.log(error);
+            }
+    } 
