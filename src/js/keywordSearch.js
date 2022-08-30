@@ -18,3 +18,9 @@ export function filterResults(searchMovie) {
     spinner.removeSpinner();
 }
 }
+export function onInputChange(e) {
+  const inputQuery = e.target.value;
+  if (inputQuery === "") {
+      refs.falseresultMessage.classList.add('hide');
+  }
+}
