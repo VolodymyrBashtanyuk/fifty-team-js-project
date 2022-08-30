@@ -50,14 +50,14 @@ movieDbApi.setPage(getCurrentPageLs())
 movies();
 
 async function oneMovies(e) {
-
+    spinner.startSpinner();
     try {
         const id = e.target.parentNode.parentNode.id;
         const oneMovieResponse = await movieDbApi.fetchOneMovie(id);
     
         createdCardFilm(oneMovieResponse);
         console.log(oneMovieResponse);
-
+        spinner.removeSpinner();
     document.addEventListener('click', localStorageFilmData)
 
     function localStorageFilmData(evt) {
