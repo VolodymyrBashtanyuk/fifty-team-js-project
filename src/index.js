@@ -105,8 +105,7 @@ async function oneMovies(e) {
         }
     } 
     }
-    verifyIdWatchedFilm();
-    verifyIdQueueFilm();
+    verifyIdWatchedFilm(), verifyIdQueueFilm();
   
     
     function localStorageFilmData(evt) {
@@ -122,7 +121,7 @@ async function oneMovies(e) {
          btnRemoveWatchedFilm.addEventListener('click', removeStorageWatchedFilm);
 
 
-        }  else if(btn.className === 'btn-queue') {
+        }  else if(evt.target.className === 'btn-queue') {
          addToQueueFilm(oneMovieResponse);
 
          const btnQueue = document.getElementById('btn-q');
