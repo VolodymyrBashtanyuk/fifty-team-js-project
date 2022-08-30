@@ -10,9 +10,3 @@ export default function addToQueueFilm(data) {
     localStorage.setItem('filmsQueue', JSON.stringify(listQueue));
 
 };
-
-// export default function removeStorageQueueFilm(index) {
-//     listQueue.splice(index, 1);
-//     localStorage.setItem('filmsWatched', JSON.stringify(listQueue))
-//   }
-
