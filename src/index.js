@@ -3,7 +3,7 @@ import { insertCreatedObject} from './js/createOneObject'
 import spinner from './js/preLoader'
 import { getGenre, saveGenre } from './js/genre';
 import etsGenre from './js/etcGenre';
-
+import {refs, filterResults} from './js/keywordSearch';
 
 
 import { createPagination } from "./js/createPagination"
@@ -89,31 +89,17 @@ async function oneMovies(e) {
     };
     };
 
-    const refs = {
-        falseresultMessage: document.querySelector('.falseresult__message'),
-        form: document.querySelector('.form')
-      }
-      refs.form.addEventListener('submit', onFormSubmit);
+refs.form.addEventListener('submit', onFormSubmit);
 async function onFormSubmit (e) {
     e.preventDefault();
-        refs.falseresultMessage.classList.add('hide');
-        const searchName = e.currentTarget.elements.search.value;
-        console.log(searchName);
-        try {
-            const searchMovie = await movieDbApi.fetchMovieName(searchName);
-            console.log(searchMovie);
-            if (searchMovie.total_results === 0) {
-                refs.falseresultMessage.classList.remove('hide');
-                return;
-            } else if (searchMovie.total_results > 0){
-                insertCreatedObject(searchMovie.results);
-            } else if (searchMovie.total_pages > 1) {
-                createPagination(searchMovie);
-                spinner.removeSpinner();
+    refs.falseresultMessage.classList.add('hide');
+    const searchName = e.currentTarget.elements.search.value;
+    try {
+        const searchMovie = await movieDbApi.fetchMovieName(searchName);
+        filterResults(searchMovie);
+        }
+    catch (error) {
+            console.log(error);
             }
-            }
-            catch (error) {
-                console.log(error);
-            }
-        } 
+    } 
 
