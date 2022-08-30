@@ -56,7 +56,7 @@ async function oneMovies(e) {
 
     try {
         const id = e.target.parentNode.parentNode.id;
-        const oneMovieResponse = await movieDbApi.fetchOneMovie('id');
+        const oneMovieResponse = await movieDbApi.fetchOneMovie(id);
         console.log(oneMovieResponse);
         createdCardFilm(oneMovieResponse);
         console.log(oneMovieResponse);
