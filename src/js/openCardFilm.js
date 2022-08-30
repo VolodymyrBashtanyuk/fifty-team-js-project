@@ -8,7 +8,7 @@ const refsModal = {
 
 cardFilm.addEventListener('click', openCardFilm);
 
-// refsModal.backdrop.addEventListener('click', closeModalClick);
+refsModal.backdrop.addEventListener('click', closeModalClick);
 
 
 function openCardFilm (e) {
@@ -33,8 +33,14 @@ function closeModalEsc(evt) {
     }
   };
 
-function closeModalClick() {
+function closeModalClick(e){
+    const closeModal =  e.target.classList.contains('backdrop-modal');
+    if(!closeModal){
+        return;
+    }else{
         refsModal.backdrop.classList.remove('is-open');
+        document.body.style.overflow = 'visible';
         document.removeEventListener('keydown', closeModalEsc);
-    document.removeEventListener('click', closeModalClick);
-};
+        document.removeEventListener('click', closeModalClick);
+    };
+}
