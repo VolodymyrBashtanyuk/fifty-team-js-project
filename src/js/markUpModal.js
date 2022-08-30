@@ -9,7 +9,7 @@ function createModalFilm(data) {
       title,
       popularity,
       original_title,
-      genre,
+      genres,
       overview,
       poster_path,
       vote_average,
@@ -49,7 +49,7 @@ function createModalFilm(data) {
             </tr>
             <tr>
               <td class="modmodal-movie-table__item-name">Genre</td>
-              <td class="modmodal-movie-table__item-descr">${genre}</td>
+              <td class="modmodal-movie-table__item-descr">${genres}</td>
             </tr>
           </tbody>
           </table>

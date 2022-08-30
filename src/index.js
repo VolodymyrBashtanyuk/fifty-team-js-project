@@ -41,7 +41,6 @@ async function movies() {
 
         createPagination(response)
 
-        insertCreatedObject(response.results)
         if (response.total_pages > 1) createPagination(response)
         spinner.removeSpinner();
 
@@ -55,13 +54,15 @@ movieDbApi.setPage(getCurrentPageLs())
 movies();
 
 async function oneMovies(e) {
-
+    spinner.startSpinner();
     try {
         const id = e.target.parentNode.parentNode.id;
         const oneMovieResponse = await movieDbApi.fetchOneMovie(id);
-    
+        
         createdCardFilm(oneMovieResponse);
-        console.log(oneMovieResponse);
+        spinner.removeSpinner();
+        console.log(oneMovieResponse.id);
+
 
     document.addEventListener('click', localStorageFilmData)
 
@@ -74,17 +75,14 @@ async function oneMovies(e) {
         btn.textContent = 'remove watched film';
        
          console.log('Click!');
-         document.removeEventListener('click', localStorageFilmData);
         } 
         else if(evt.target.className === 'btn-queue') {
          addToQueueFilm(oneMovieResponse);
          btn.textContent = 'remove queued film';
          console.log('Click!2');
          document.removeEventListener('click', localStorageFilmData)
-        }
-        
+        }        
 }
-       
     } catch(error) {
         console.log(error);
     };
