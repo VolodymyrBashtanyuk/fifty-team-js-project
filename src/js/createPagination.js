@@ -81,7 +81,7 @@ function onPaginationClick(e) {
 
         currentPage = nextPage
         const type = getQueryTypeLs().queryType
-        console.log(type);
+        // console.log(type);
     if (type === 'getMovies') {
     
     // const lsCurrentPage = getCurrentPageLs();
@@ -91,11 +91,16 @@ function onPaginationClick(e) {
     movies();    
     }
 
-    if (type === 'getOneMovie') {console.log('start next avatar', currentPage);
-        console.log(movieDbApi);
+    if (type === 'getOneMovie') {
+        // console.log('start next avatar', currentPage);
+        // console.log(movieDbApi);
         // movieDbApi.fetchMovieName()
         movieDbApi.setPage(currentPage)
-        movieDbApi.fetchMovieName().then(data => filterResults(data))
+        movieDbApi.fetchMovieName()
+            .then(data => {
+                filterResults(data)
+                smoothScrool()
+        }).catch(console.error)
     }
 
 }
