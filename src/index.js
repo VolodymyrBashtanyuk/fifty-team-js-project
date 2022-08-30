@@ -40,7 +40,6 @@ async function movies() {
         if (response.total_pages > 1) createPagination(response)
         spinner.removeSpinner();
 
-
     } catch (error) {
         console.log(error)
     };
@@ -56,32 +55,42 @@ async function oneMovies(e) {
         const oneMovieResponse = await movieDbApi.fetchOneMovie(id);
     
         createdCardFilm(oneMovieResponse);
-        console.log(oneMovieResponse);
+        console.log(oneMovieResponse.id);
         spinner.removeSpinner();
-    document.addEventListener('click', localStorageFilmData)
+
+    document.addEventListener('click', localStorageFilmData);
+
+    const arrayDataFilm = JSON.parse(localStorage.getItem('filmsWatched')) || '[]';
+    let found = false;
+
+    for(let i = 0; i <= arrayDataFilm.length; i += 1) {
+        if(oneMovieResponse.id === arrayDataFilm[i].id) {
+    found = true;
+    console.log('yeah');
+           
+
+    return;
+        }
+    } 
 
     function localStorageFilmData(evt) {
-     const btn = evt.target;  
-      
-    if (evt.target.className === 'btn-watched') {
+        const btn = evt.target;   
+    if (btn.className === 'btn-watched') {
         
         addToWatchedFilm(oneMovieResponse);
         btn.textContent = 'remove watched film';
        
          console.log('Click!');
-         document.removeEventListener('click', localStorageFilmData);
-        } 
-        else if(evt.target.className === 'btn-queue') {
+
+        }  else if(btn.className === 'btn-queue') {
          addToQueueFilm(oneMovieResponse);
          btn.textContent = 'remove queued film';
          console.log('Click!2');
          document.removeEventListener('click', localStorageFilmData)
-        }
-        
-}
+        }  
        
-    } catch(error) {
+    }
+} catch(error) {
         console.log(error);
     };
-    };
-
+}
