@@ -5,11 +5,9 @@ const refsModal = {
     backdrop: document.querySelector('.backdrop-modal'),
     };
 
-
 cardFilm.addEventListener('click', openCardFilm);
 
 refsModal.backdrop.addEventListener('click', closeModalClick);
-
 
 function openCardFilm (e) {
     e.preventDefault();
@@ -35,9 +33,9 @@ function closeModalEsc(evt) {
 
 function closeModalClick(e){
     const closeModal =  e.target.classList.contains('backdrop-modal');
-    if(!closeModal){
+    if(!closeModal) {
         return;
-    }else{
+    } else {
         refsModal.backdrop.classList.remove('is-open');
         document.body.style.overflow = 'visible';
         document.removeEventListener('keydown', closeModalEsc);

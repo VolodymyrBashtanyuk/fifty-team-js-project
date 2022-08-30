@@ -62,8 +62,8 @@ async function oneMovies(e) {
     spinner.startSpinner();
     try {
         const id = e.target.parentNode.parentNode.id;
+        console.log(id)
         const oneMovieResponse = await movieDbApi.fetchOneMovie(id);
-        console.log(oneMovieResponse);
         createdCardFilm(oneMovieResponse);
         console.log(oneMovieResponse.id);
         spinner.removeSpinner();
@@ -89,10 +89,9 @@ async function oneMovies(e) {
     }
 
     function verifyIdQueueFilm() {
-        const btnQueue = document.getElementById('btn-q');
-       const btnRemoveQueueFilm = document.getElementById('btn-rq');
-
-        const arrayDataFilm = JSON.parse(localStorage.getItem('filmsQueue')) || '[]';
+    const btnQueue = document.getElementById('btn-q');
+    const btnRemoveQueueFilm = document.getElementById('btn-rq');
+    const arrayDataFilm = JSON.parse(localStorage.getItem('filmsQueue')) || '[]';
     let found = false;
 
     for(let i = 0; i <= arrayDataFilm.length; i += 1) {
@@ -110,7 +109,6 @@ async function oneMovies(e) {
     verifyIdQueueFilm();
   
     
-
     function localStorageFilmData(evt) {
 
     if (evt.target.className === 'btn-watched') {
@@ -126,17 +124,17 @@ async function oneMovies(e) {
 
         }  else if(btn.className === 'btn-queue') {
          addToQueueFilm(oneMovieResponse);
+
          const btnQueue = document.getElementById('btn-q');
          const btnRemoveQueueFilm = document.getElementById('btn-rq');
+
          btnQueue.classList.add('hide');
          btnRemoveQueueFilm.classList.remove('hide');
          btnRemoveQueueFilm.addEventListener('click', removeStorageQueueFilm);
          console.log('Click!2');
-        
         }  
     }
-    
-} catch(error) {
+    } catch(error) {
         console.log(error);
     };
     };
