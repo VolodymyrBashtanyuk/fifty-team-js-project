@@ -32,6 +32,11 @@ async fetchOneMovie(id) {
     return dataOneMovie;
 }
 
+async fetchMovieName(searchName) {
+    const fetchResult = await fetch(`${this.BASE_URL}search/movie?api_key=${this.KEY}&language=en-US&include_adult=false&query=${searchName}`);
+    const oneSearchMovie = await fetchResult.json();
+    return oneSearchMovie;
+}
 getPage(){
     return this.page;
 }
@@ -40,4 +45,3 @@ setPage(newPage){
     this.page = newPage;
 }
 };
-

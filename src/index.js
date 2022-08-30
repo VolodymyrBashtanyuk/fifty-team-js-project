@@ -89,3 +89,31 @@ async function oneMovies(e) {
     };
     };
 
+    const refs = {
+        falseresultMessage: document.querySelector('.falseresult__message'),
+        form: document.querySelector('.form')
+      }
+      refs.form.addEventListener('submit', onFormSubmit);
+async function onFormSubmit (e) {
+    e.preventDefault();
+        refs.falseresultMessage.classList.add('hide');
+        const searchName = e.currentTarget.elements.search.value;
+        console.log(searchName);
+        try {
+            const searchMovie = await movieDbApi.fetchMovieName(searchName);
+            console.log(searchMovie);
+            if (searchMovie.total_results === 0) {
+                refs.falseresultMessage.classList.remove('hide');
+                return;
+            } else if (searchMovie.total_results > 0){
+                insertCreatedObject(searchMovie.results);
+            } else if (searchMovie.total_pages > 1) {
+                createPagination(searchMovie);
+                spinner.removeSpinner();
+            }
+            }
+            catch (error) {
+                console.log(error);
+            }
+        } 
+
