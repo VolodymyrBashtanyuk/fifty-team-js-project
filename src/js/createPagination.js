@@ -1,7 +1,7 @@
-import theMovieDbApi from "./fetchMovies";
-const movieDbApi = new theMovieDbApi();
+import {movieDbApi} from "../index"
 import {insertCreatedObject} from './createOneObject';
 import spinner from './preLoader'
+import {filterResults} from "./keywordSearch"
 
 
 let currentPage;
@@ -28,7 +28,6 @@ function createArr(start, end) {
         }
     }
 
-    // if (res[0] === 3) res.unshift(2)
     if (res[0] === 2) res.unshift(1)
     if (res[0] > 3) res.unshift(1, 0)
 
@@ -75,11 +74,24 @@ function onPaginationClick(e) {
     if (e.target.dataset.btn === '>' && currentPage < lastPage) {
         nextPage = currentPage += 1
     }
-    
-    currentPage = nextPage
+
+        currentPage = nextPage
+        const type = getQueryTypeLs().queryType
+    if (type === 'getMovies') {
     saveCurrentPageLs(currentPage)
     movieDbApi.setPage(nextPage)
-    movies();
+    movies();    
+    }
+
+    if (type === 'getOneMovie') {
+        movieDbApi.setPage(currentPage)
+        movieDbApi.fetchMovieName()
+            .then(data => {
+                filterResults(data)
+                smoothScrool()
+        }).catch(console.error)
+    }
+
 }
 
 async function movies() {
@@ -113,6 +125,22 @@ function saveCurrentPageLs(page) {
     }
 }
 
+function saveQueryTypeLs(type) {
+    try {
+    localStorage.setItem('queryType', JSON.stringify({queryType: type}));        
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+function getQueryTypeLs() {
+    try {
+        return JSON.parse(localStorage.getItem('queryType'))
+    } catch (error) {
+        console.log(error);        
+    }
+}
+
 function getCurrentPageLs() {
 
     try {
@@ -124,4 +152,4 @@ function getCurrentPageLs() {
     }
 }
 
-export {createPagination, getCurrentPageLs}
+export {createPagination, getCurrentPageLs, saveQueryTypeLs}

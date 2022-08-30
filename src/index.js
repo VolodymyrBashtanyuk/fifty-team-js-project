@@ -15,7 +15,7 @@ import footer from './js/modalFooter';
 import { createPagination } from "./js/createPagination"
 
 
-import { createPagination, getCurrentPageLs } from "./js/createPagination"
+import { createPagination, getCurrentPageLs, saveQueryTypeLs } from "./js/createPagination"
 
 refs.falseresultMessage.classList.add('hide');
 const movieDbApi = new theMovieDbApi();
@@ -55,6 +55,7 @@ async function movies() {
 };
 
 movieDbApi.setPage(getCurrentPageLs())
+saveQueryTypeLs('getMovies')
 movies();
 
 
@@ -67,7 +68,7 @@ async function oneMovies(e) {
         createdCardFilm(oneMovieResponse);
         console.log(oneMovieResponse.id);
         spinner.removeSpinner();
-
+        // if (response.total_pages > 1) createPagination(response)
     document.addEventListener('click', localStorageFilmData);
    
     function verifyIdWatchedFilm() {
@@ -147,10 +148,15 @@ async function onFormSubmit (e) {
     refs.falseresultMessage.classList.add('hide');
     const searchName = e.currentTarget.elements.search.value;
     try {
-        const searchMovie = await movieDbApi.fetchMovieName(searchName);
+        movieDbApi.setPage(1)
+        movieDbApi.setQuery(searchName)
+        const searchMovie = await movieDbApi.fetchMovieName();
+        
         filterResults(searchMovie);
         }
     catch (error) {
             console.log(error);
             }
-    } 
+} 
+    
+export {movies, oneMovies, movieDbApi}
