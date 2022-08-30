@@ -1,9 +1,6 @@
-import theMovieDbApi from "./fetchMovies";
-// const movieDbApi = new theMovieDbApi();
 import {movieDbApi} from "../index"
 import {insertCreatedObject} from './createOneObject';
 import spinner from './preLoader'
-// import {oneMovies} from "../index"
 import {filterResults} from "./keywordSearch"
 
 
@@ -31,7 +28,6 @@ function createArr(start, end) {
         }
     }
 
-    // if (res[0] === 3) res.unshift(2)
     if (res[0] === 2) res.unshift(1)
     if (res[0] > 3) res.unshift(1, 0)
 
@@ -81,20 +77,13 @@ function onPaginationClick(e) {
 
         currentPage = nextPage
         const type = getQueryTypeLs().queryType
-        // console.log(type);
     if (type === 'getMovies') {
-    
-    // const lsCurrentPage = getCurrentPageLs();
-    // console.log(lsCurrentPage);
     saveCurrentPageLs(currentPage)
     movieDbApi.setPage(nextPage)
     movies();    
     }
 
     if (type === 'getOneMovie') {
-        // console.log('start next avatar', currentPage);
-        // console.log(movieDbApi);
-        // movieDbApi.fetchMovieName()
         movieDbApi.setPage(currentPage)
         movieDbApi.fetchMovieName()
             .then(data => {
@@ -151,15 +140,6 @@ function getQueryTypeLs() {
         console.log(error);        
     }
 }
-
-// function getCurrentPageLs() {
-//     try {
-//         return JSON.parse(localStorage.getItem(LS_CURRENT_PAGE_KEY))
-
-//     } catch (error) {
-//         console.log(error);
-//     }    
-// }
 
 function getCurrentPageLs() {
 
