@@ -1,4 +1,4 @@
-export function getWatchedData() {
+export default function getWatchedData() {
     try {
         const watched = JSON.parse(localStorage.getItem('filmsWatched')) 
         return watched
