@@ -104,7 +104,8 @@
     };
     &:hover,
     &:focus {
-        background-color: #f68635
+        background-color: #f68635;
+        transition: var(--animation-hover);
     }
 }
 
