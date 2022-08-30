@@ -18,3 +18,10 @@ export function filterResults(searchMovie) {
     spinner.removeSpinner();
 }
 }
+export function onInputChange(e) {
+  const inputQuery = e.target.value;
+  console.log(inputQuery);
+  if (inputQuery === "") {
+      refs.falseresultMessage.classList.add('hide');
+  }
+}

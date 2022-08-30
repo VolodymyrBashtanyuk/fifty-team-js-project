@@ -2,12 +2,12 @@ import theMovieDbApi from "./js/fetchMovies";
 import { insertCreatedObject} from './js/createOneObject'
 import spinner from './js/preLoader'
 import { getGenre, saveGenre } from './js/genre';
-
-
+const debounce = require('lodash.debounce');
+const DEBOUNCE_DELAY = 300;
 
 import etsGenre from './js/etcGenre';
 
-import {refs, filterResults} from './js/keywordSearch';
+import {refs, filterResults, onInputChange} from './js/keywordSearch';
 import footer from './js/modalFooter';
 
 
@@ -17,7 +17,7 @@ import { createPagination } from "./js/createPagination"
 
 import { createPagination, getCurrentPageLs } from "./js/createPagination"
 
-
+refs.falseresultMessage.classList.add('hide');
 const movieDbApi = new theMovieDbApi();
 
 const cardOneFilm = document.querySelector('.gallery');
@@ -98,6 +98,8 @@ async function oneMovies(e) {
 
 
 refs.form.addEventListener('submit', onFormSubmit);
+refs.form.addEventListener('input', debounce(onInputChange, DEBOUNCE_DELAY));
+
 async function onFormSubmit (e) {
     e.preventDefault();
     refs.falseresultMessage.classList.add('hide');
