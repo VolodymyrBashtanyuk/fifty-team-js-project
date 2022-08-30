@@ -51,6 +51,7 @@ function closeModalClick(e){
 const btnClose = document.querySelector('[data-modal-close]');
 btnClose.addEventListener('click', () => {
     refsModal.backdrop.classList.add('hide');
+    document.body.style.overflow = 'visible';
 })
 
 export {openCardFilm, closeModalEsc, closeModalClick}
