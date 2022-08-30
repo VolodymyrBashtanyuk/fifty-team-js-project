@@ -15,7 +15,7 @@ function openCardFilm (e) {
     if (!e.target.classList.contains('info-title') &&  !e.target.classList.contains('poster')) {
         return;
     } 
-
+refsModal.backdrop.classList.remove('hide');
 refsModal.backdrop.classList.add('is-open');
 document.addEventListener('keydown', closeModalEsc);
 document.removeEventListener('click', closeModalEsc);
@@ -42,3 +42,8 @@ function closeModalClick(e){
         document.removeEventListener('click', closeModalClick);
     };
 }
+
+const btnClose = document.querySelector('[data-modal-close]');
+btnClose.addEventListener('click', () => {
+    refsModal.backdrop.classList.add('hide');
+})

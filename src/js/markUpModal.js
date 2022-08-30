@@ -1,6 +1,6 @@
 const refsModal = {
   backdrop: document.querySelector('.backdrop-modal'),
-  modal: document.querySelector('.modal-movie'),
+  modal: document.querySelector('.modal-movie-cont'),
 }
 const imageURL = "https://image.tmdb.org/t/p/w500";
 
@@ -17,14 +17,7 @@ function createModalFilm(data) {
     } = data;
     
   return `
-      <button data-modal-close type="button" class="modal-movie-btn-close">
-          <svg class="modal-movie-img-close">
-              <use href="./images/icon-close-modal.svg#modal-close"></use>
-          </svg>
-      </button>
-
-    <div class="modal-movie-cont">
-
+      
       <div class="modal-movie-cont__img">
         <img class="modal-movie-img" src="${imageURL}${poster_path}" alt="${title}">
       </div>
@@ -76,7 +69,7 @@ function createModalFilm(data) {
             </li>
         </ul>
 
-      </div>
+     
 
     </div>`;
 };
