@@ -9,11 +9,9 @@
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  z-index: 100;
+  z-index: 10;
 
-  background-color: rgba(190, 207, 217, 0.518);
-  transition: opacity var(--animation-hover),
-    visibility var(--animation-hover);
+  background-color: rgba(190, 207, 217, 0.5);
 }
 
 .is-open.backdrop-modal {
@@ -27,10 +25,68 @@
   height: 100vh;
 }
 
-.modal-movie-img {
-  margin-bottom: 20px;
+.modal-movie {
+  position: absolute;
+  width: 280px;
+  min-height: 500px;
+  top: 50%;
+  left: 50%;
+  padding: 48px 20px 40px 20px;
+  transform: translate(-50%, -50%);
+  background-color: var(--background-color);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+
+  @include mq(tablet) {
+    width: 704px;
+    min-height: 400px;
+    padding: 40px 72px 40px 36px;
+  }
+  @include mq(desktop) {
+    width: 806px;
+    min-height: 558px;
+    padding: 40px 12px;
+  }
+}
+
+  .modal-movie-btn-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 30px;
+  height: 30px;
+  background: var(--background-color);
+  box-sizing: border-box;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition-property: fill;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  outline: 1px solid #f00;
+  fill: #f00;
+
+  &:hover .modal-movie-img-close,
+  &:focus .modal-movie-img-close {
+    fill: var(--btn-rating-bg);
+  }
+}
+
+.modal-movie-img-close {
+  // fill: #f00;
+
+  height: 18px;
+  width: 18px;
+}
+
+.modal-movie-cont__img{
   width: 240px;
+  margin-bottom: 20px;
   border-radius: 5px;
+  position: relative;
+  overflow: hidden;
+
   @include mq(tablet) {
     margin-right: 68px;
     margin-bottom: 0;
@@ -40,6 +96,14 @@
     margin-right: 16px;
     width: 375px;
   }
+}
+
+.modal-movie-img {
+  object-fit: cover;
+}
+
+.modal-movie-cont{
+display: flex;  
 }
 
 .modal-movie-cont__about {
@@ -65,29 +129,31 @@
   }
 }
 
-.modal__descript-table {
+.modal-movie-table {
   padding: 0;
   margin: 0 0 20px 0;
 }
 
-.modmodal-movie-table__item-name {
-  width: 108px;
+.modal-movie-table > tr{
+margin-bottom: 8px;  
+}
 
+.modal-movie-table__item-name {
   font-weight: 500;
   font-size: 12px;
   line-height: 1.33;
-  color: var(--primary-font);
+  color: var(--modal-title-txt);
+  width: 152px;
 }
 
-.modmodal-movie-table__item-value {
+.modal-movie-table__item-value {
   font-weight: 500;
   font-size: 12px;
   line-height: 1.33;
   color: var(--primary-font);
   text-transform: uppercase;
-}
 
-.modmodal-movie-table__item-value > vote {
+  & .vote {
   display: inline-block;
   text-align: center;
   min-width: 36px;
@@ -96,20 +162,21 @@
   color: var(--secondary-txt);
   background-color: var(--body-second-txt);
   border-radius: 5px;
+  }
+
+  & .votes {
+    display: inline-block;
+    text-align: center;
+    min-width: 36px;
+    height: 16px;
+    padding: 1px 4px;
+    background-color: var(--footer-bg);
+    border-radius: 5px;
+    color: var(--primery-txt);
+  }
 }
 
-.modamodmodal-movie-table__item-value > votes {
-  display: inline-block;
-  text-align: center;
-  min-width: 36px;
-  height: 16px;
-  padding: 1px 4px;
-  background-color: var(--footer-bg);
-  border-radius: 5px;
-  color: var(--primery-txt);
-}
-
-.modmodal-movie-about {
+.modal-movie-about {
   margin-bottom: 8px;
   font-weight: 500;
   font-size: 12px;
@@ -117,9 +184,9 @@
   color: var(--primary-font);
 }
 
-.modmodal-movie-descr-movie {
+.modal-movie-descr-movie {
   font-weight: 500;
-  font-size: 16px;
+  font-size: 12px;
   line-height: 1.66;
   color: var(--primary-font);
   margin-bottom: 20px;
@@ -134,7 +201,7 @@
   border-radius: 5px;
   border: 0px solid transparent;
   padding: 2px 10px;
-  width: 111px;
+  width: 110px;
 
   border: 1px solid transparent;
   background-color: var(--btn-rating-bg);
