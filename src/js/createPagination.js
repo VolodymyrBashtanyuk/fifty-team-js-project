@@ -2,6 +2,7 @@ import theMovieDbApi from "./fetchMovies";
 const movieDbApi = new theMovieDbApi();
 import {insertCreatedObject} from './createOneObject';
 import spinner from './preLoader'
+// import {movies, oneMovies} from "../index"
 
 
 let currentPage;
@@ -77,6 +78,8 @@ function onPaginationClick(e) {
     }
     
     currentPage = nextPage
+    // const lsCurrentPage = getCurrentPageLs();
+    // console.log(lsCurrentPage);
     saveCurrentPageLs(currentPage)
     movieDbApi.setPage(nextPage)
     movies();
@@ -105,13 +108,22 @@ function smoothScrool() {
    })
 }
 
-function saveCurrentPageLs(page) {
+function saveCurrentPageLs(page,search) {
     try {
-        localStorage.setItem(LS_CURRENT_PAGE_KEY, JSON.stringify({currentPage: page}))
+        localStorage.setItem(LS_CURRENT_PAGE_KEY, JSON.stringify({currentPage: page, currentSearch: search}))
     } catch (error) {
         console.log(error);
     }
 }
+
+// function getCurrentPageLs() {
+//     try {
+//         return JSON.parse(localStorage.getItem(LS_CURRENT_PAGE_KEY))
+
+//     } catch (error) {
+//         console.log(error);
+//     }    
+// }
 
 function getCurrentPageLs() {
 

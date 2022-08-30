@@ -67,7 +67,7 @@ async function oneMovies(e) {
         createdCardFilm(oneMovieResponse);
         console.log(oneMovieResponse.id);
         spinner.removeSpinner();
-
+        // if (response.total_pages > 1) createPagination(response)
     document.addEventListener('click', localStorageFilmData);
    
     function verifyIdWatchedFilm() {
@@ -153,4 +153,5 @@ async function onFormSubmit (e) {
     catch (error) {
             console.log(error);
             }
-    } 
+} 
+    
