@@ -1,8 +1,7 @@
-import getQueueData from './getQueueData';
-import insertCreatedObject from './insertCreatedObject';
+import getWatchedData from './getWatchedData';
+import { insertCreatedObject } from './insertCreatedObject';
 
-export function onWatchedBtnClick (e) {
+export default function onWatchedBtnClick (e) {
     const arrayFilms = getWatchedData();
-    console.log(arrayFilms);
     insertCreatedObject(arrayFilms);
 }

@@ -1,4 +1,4 @@
-export function getQueueData() {
+export default function getQueueData() {
     try {
         const watched = JSON.parse(localStorage.getItem('filmsQueue')) 
         console.log(watched);
