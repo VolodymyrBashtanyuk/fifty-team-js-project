@@ -1,7 +1,8 @@
 import theMovieDbApi from "./js/fetchMovies";
-import insertCreatedObject from './js/createOneObject'
+import { insertCreatedObject} from './js/createOneObject'
 import spinner from './js/preLoader'
 import { getGenre, saveGenre } from './js/genre';
+import etsGenre from './js/etcGenre';
 
 
 
@@ -15,6 +16,8 @@ const movieDbApi = new theMovieDbApi();
 
 const cardOneFilm = document.querySelector('.gallery');
 cardOneFilm.addEventListener('click', oneMovies);
+
+
 import openCardFilm from './js/openCardFilm'
 import createdCardFilm from "./js/markUpModal";
 
@@ -29,15 +32,13 @@ async function movies() {
     try {
         const response = await movieDbApi.fetchMovies();
         const genreResponse = await movieDbApi.fetchGenres();
-        console.log(response);
-        console.log(genreResponse);
+   
         const conditionKeyGenre = getGenre();
         if (conditionKeyGenre === undefined) {
             saveGenre(genreResponse);
         }
 
         insertCreatedObject(response.results)
-        refs.gallery.addEventListener('click', onListenerBtnEtc);
 
         if (response.total_pages > 1) createPagination(response)
         spinner.removeSpinner();
@@ -55,8 +56,8 @@ async function oneMovies(e) {
 
     try {
         const id = e.target.parentNode.parentNode.id;
-        const oneMovieResponse = await movieDbApi.fetchOneMovie(id);
-    
+        const oneMovieResponse = await movieDbApi.fetchOneMovie('id');
+        console.log(oneMovieResponse);
         createdCardFilm(oneMovieResponse);
         console.log(oneMovieResponse);
 
@@ -64,6 +65,7 @@ async function oneMovies(e) {
 
     function localStorageFilmData(evt) {
      const btn = evt.target;  
+     
       
     if (evt.target.className === 'btn-watched') {
         
