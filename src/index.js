@@ -2,8 +2,14 @@ import theMovieDbApi from "./js/fetchMovies";
 import { insertCreatedObject} from './js/createOneObject'
 import spinner from './js/preLoader'
 import { getGenre, saveGenre } from './js/genre';
+
+
+
 import etsGenre from './js/etcGenre';
+
 import {refs, filterResults} from './js/keywordSearch';
+import footer from './js/modalFooter';
+
 
 
 import { createPagination } from "./js/createPagination"
@@ -52,6 +58,7 @@ async function movies() {
 movieDbApi.setPage(getCurrentPageLs())
 movies();
 
+
 async function oneMovies(e) {
 
     try {
@@ -89,6 +96,7 @@ async function oneMovies(e) {
     };
     };
 
+
 refs.form.addEventListener('submit', onFormSubmit);
 async function onFormSubmit (e) {
     e.preventDefault();
@@ -102,4 +110,3 @@ async function onFormSubmit (e) {
             console.log(error);
             }
     } 
-
