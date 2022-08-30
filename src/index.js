@@ -1,6 +1,5 @@
 import theMovieDbApi from "./js/fetchMovies";
-import { refs, insertCreatedObject } from './js/createOneObject'
-import onListenerBtnEtc from './js/etcGenre'
+import insertCreatedObject from './js/createOneObject'
 import spinner from './js/preLoader'
 import { getGenre, saveGenre } from './js/genre';
 
@@ -36,13 +35,6 @@ async function movies() {
         if (conditionKeyGenre === undefined) {
             saveGenre(genreResponse);
         }
-
-        insertCreatedObject(response.results);
-        refs.gallery.addEventListener('click', onListenerBtnEtc);
-
-        spinner.removeSpinner();
-
-        createPagination(response)
 
         insertCreatedObject(response.results)
         if (response.total_pages > 1) createPagination(response)
