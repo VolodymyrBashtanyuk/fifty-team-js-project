@@ -5,6 +5,10 @@ import { getGenre, saveGenre } from './js/genre';
 const debounce = require('lodash.debounce');
 const DEBOUNCE_DELAY = 300;
 
+
+import addToWatchedFilm from "./js/localStorageToWatchedFilm";
+import addToQueueFilm from "./js/localStorageToQueueFilm";
+
 import etsGenre from './js/etcGenre';
 import openCardFilm from './js/openCardFilm'
 import {refs, filterResults, onInputChange} from './js/keywordSearch';
