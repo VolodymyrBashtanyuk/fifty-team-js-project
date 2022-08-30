@@ -61,7 +61,7 @@ movies();
 async function oneMovies(e) {
     spinner.startSpinner();
     try {
-        const id = e.target.parentNode.parentNode.id;
+        const id = e.target.parentNode.parentNode.parentNode.id;
         console.log(id)
         const oneMovieResponse = await movieDbApi.fetchOneMovie(id);
         createdCardFilm(oneMovieResponse);
