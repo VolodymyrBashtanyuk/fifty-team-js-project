@@ -9,6 +9,14 @@ import spinner from './preLoader'
 
 const movieDbApi = new theMovieDbApi();
 
+import getWatchedData from './library/getWatchedData';
+import getQueueData from './library/getQueueData';
+const dataWatchedStorage = getWatchedData();
+const dataQueueStorage = getQueueData();
+
+
+
+
 const cardOneFilm = document.querySelector('.gallery');
 cardOneFilm.addEventListener('click', oneMovies);
 
@@ -88,8 +96,8 @@ function verifyIdQueueFilm() {
     } 
 }
   
-    
 } catch(error) {
+
         console.log(error);
 };
 };
