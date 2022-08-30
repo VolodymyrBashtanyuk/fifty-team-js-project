@@ -7,6 +7,10 @@ import removeStorageWatchedFilm from './removeStorageWatchedFilm';
 import removeStorageQueueFilm from './removeStorageQueueFilm';
 import spinner from './preLoader'
 
+import getWatchedData from './library/getWatchedData';
+import getQueueData from './library/getQueueData';
+const dataWatchedStorage = getWatchedData();
+const dataQueueStorage = getQueueData();
 
 const cardOneFilm = document.querySelector('.gallery');
 cardOneFilm.addEventListener('click', oneMovies);
@@ -73,6 +77,8 @@ export default async function oneMovies(e) {
         addToWatchedFilm(oneMovieResponse);
         const btnWatched = document.getElementById('btn-w');
         const btnRemoveWatchedFilm = document.getElementById('btn-rw');
+           console.log(dataWatchedStorage);
+    console.log(dataQueueStorage);
          console.log('Click!');
          btnWatched.classList.add('hide');
          btnRemoveWatchedFilm.classList.remove('hide');
