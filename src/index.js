@@ -37,6 +37,8 @@ async function movies() {
         }
 
         insertCreatedObject(response.results)
+        refs.gallery.addEventListener('click', onListenerBtnEtc);
+
         if (response.total_pages > 1) createPagination(response)
         spinner.removeSpinner();
 
