@@ -15,7 +15,8 @@ function createModalFilm(data) {
       vote_average,
       vote_count,
     } = data;
-    
+    const genreName = genres.map(ganre => ganre.name).join(' ');
+
   return `
       <button data-modal-close type="button" class="modal-movie-btn-close">
           <svg class="modal-movie-img-close">
@@ -52,7 +53,7 @@ function createModalFilm(data) {
             </tr>
             <tr>
               <td class="modal-movie-table__item-name">Genre</td>
-              <td class="modal-movie-table__item-value">${genres}</td>
+              <td class="modal-movie-table__item-value">${genreName}</td>
             </tr>
           </tbody>
           </table>

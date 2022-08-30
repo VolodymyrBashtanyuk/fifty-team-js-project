@@ -6,11 +6,11 @@ const debounce = require('lodash.debounce');
 const DEBOUNCE_DELAY = 300;
 
 import etsGenre from './js/etcGenre';
-
+import openCardFilm from './js/openCardFilm'
 import {refs, filterResults, onInputChange} from './js/keywordSearch';
 import footer from './js/modalFooter';
 
-
+import oneMovies from "./js/oneMovie";
 
 import { createPagination } from "./js/createPagination"
 
@@ -20,17 +20,15 @@ import { createPagination, getCurrentPageLs } from "./js/createPagination"
 refs.falseresultMessage.classList.add('hide');
 const movieDbApi = new theMovieDbApi();
 
-const cardOneFilm = document.querySelector('.gallery');
-cardOneFilm.addEventListener('click', oneMovies);
 
 
 import openCardFilm from './js/openCardFilm'
-import createdCardFilm from "./js/markUpModal";
+// import createdCardFilm from "./js/markUpModal";
 
-import addToWatchedFilm from "./js/localStorageToWatchedFilm";
-import addToQueueFilm from "./js/localStorageToQueueFilm";
-import removeStorageWatchedFilm from './js/removeStorageWatchedFilm';
-import removeStorageQueueFilm from './js/removeStorageQueueFilm';
+// import addToWatchedFilm from "./js/localStorageToWatchedFilm";
+// import addToQueueFilm from "./js/localStorageToQueueFilm";
+// import removeStorageWatchedFilm from './js/removeStorageWatchedFilm';
+// import removeStorageQueueFilm from './js/removeStorageQueueFilm';
 
 async function movies() {
 
@@ -38,8 +36,8 @@ async function movies() {
     try {
         const response = await movieDbApi.fetchMovies();
         const genreResponse = await movieDbApi.fetchGenres();
-   
         const conditionKeyGenre = getGenre();
+
         if (conditionKeyGenre === undefined) {
             saveGenre(genreResponse);
         }
@@ -58,85 +56,84 @@ movieDbApi.setPage(getCurrentPageLs())
 movies();
 
 
-async function oneMovies(e) {
-    spinner.startSpinner();
-    try {
-        const id = e.target.parentNode.parentNode.parentNode.id;
-        console.log(id)
-        const oneMovieResponse = await movieDbApi.fetchOneMovie(id);
-        createdCardFilm(oneMovieResponse);
-        console.log(oneMovieResponse.id);
-        spinner.removeSpinner();
+// async function oneMovies(e) {
+//     spinner.startSpinner();
+//     try {
+//         const id = e.target.parentNode.parentNode.parentNode.id;
+       
+//         const oneMovieResponse = await movieDbApi.fetchOneMovie(id);
+//         createdCardFilm(oneMovieResponse);
+//         spinner.removeSpinner();
 
-    document.addEventListener('click', localStorageFilmData);
+//     document.addEventListener('click', localStorageFilmData);
    
-    function verifyIdWatchedFilm() {
-    const btnWatched = document.getElementById('btn-w');
-    const btnRemoveWatchedFilm = document.getElementById('btn-rw');
-    const arrayDataFilm = JSON.parse(localStorage.getItem('filmsWatched')) || '[]';
-    let found = false;
+//     function verifyIdWatchedFilm() {
+//     const btnWatched = document.getElementById('btn-w');
+//     const btnRemoveWatchedFilm = document.getElementById('btn-rw');
+//     const arrayDataFilm = JSON.parse(localStorage.getItem('filmsWatched')) || '[]';
+//     let found = false;
 
-    for(let i = 0; i <= arrayDataFilm.length; i += 1) {
-        if(oneMovieResponse.id === arrayDataFilm[i].id) {
-    found = true;
-    console.log('yeah');
-    btnWatched.classList.add('hide');
-    btnRemoveWatchedFilm.classList.remove('hide');
-    btnRemoveWatchedFilm.addEventListener('click', removeStorageWatchedFilm);
-    return;
-        } 
-    } 
-    }
+//     for(let i = 0; i <= arrayDataFilm.length; i += 1) {
+//         if(oneMovieResponse.id === arrayDataFilm[i].id) {
+//     found = true;
+//     console.log('yeah');
+//     btnWatched.classList.add('hide');
+//     btnRemoveWatchedFilm.classList.remove('hide');
+//     btnRemoveWatchedFilm.addEventListener('click', removeStorageWatchedFilm);
+//     return;
+//         } 
+//     } 
+//     }
 
-    function verifyIdQueueFilm() {
-    const btnQueue = document.getElementById('btn-q');
-    const btnRemoveQueueFilm = document.getElementById('btn-rq');
-    const arrayDataFilm = JSON.parse(localStorage.getItem('filmsQueue')) || '[]';
-    let found = false;
+//     function verifyIdQueueFilm() {
+//     const btnQueue = document.getElementById('btn-q');
+//     const btnRemoveQueueFilm = document.getElementById('btn-rq');
+//     const arrayDataFilm = JSON.parse(localStorage.getItem('filmsQueue')) || '[]';
+//     let found = false;
 
-    for(let i = 0; i <= arrayDataFilm.length; i += 1) {
-        if(oneMovieResponse.id === arrayDataFilm[i].id ) {
-    found = true;
-    console.log('yeahQ');
-    btnQueue.classList.add('hide');
-    btnRemoveQueueFilm.classList.remove('hide');
-    btnRemoveQueueFilm.addEventListener('click', removeStorageQueueFilm);
-    return;
-        }
-    } 
-    }
-    verifyIdWatchedFilm(), verifyIdQueueFilm();
+//     for(let i = 0; i <= arrayDataFilm.length; i += 1) {
+//         if(oneMovieResponse.id === arrayDataFilm[i].id ) {
+//     found = true;
+//     console.log('yeahQ');
+//     btnQueue.classList.add('hide');
+//     btnRemoveQueueFilm.classList.remove('hide');
+//     btnRemoveQueueFilm.addEventListener('click', removeStorageQueueFilm);
+//     return;
+//         }
+//     } 
+//     }
+//     verifyIdWatchedFilm(), verifyIdQueueFilm();
   
     
-    function localStorageFilmData(evt) {
+//     function localStorageFilmData(evt) {
 
-    if (evt.target.className === 'btn-watched') {
+//     if (evt.target.className === 'btn-watched') {
         
-        addToWatchedFilm(oneMovieResponse);
-        const btnWatched = document.getElementById('btn-w');
-        const btnRemoveWatchedFilm = document.getElementById('btn-rw');
-         console.log('Click!');
-         btnWatched.classList.add('hide');
-         btnRemoveWatchedFilm.classList.remove('hide');
-         btnRemoveWatchedFilm.addEventListener('click', removeStorageWatchedFilm);
+//         addToWatchedFilm(oneMovieResponse);
+//         const btnWatched = document.getElementById('btn-w');
+//         const btnRemoveWatchedFilm = document.getElementById('btn-rw');
+//          console.log('Click!');
+//          btnWatched.classList.add('hide');
+//          btnRemoveWatchedFilm.classList.remove('hide');
+//          btnRemoveWatchedFilm.addEventListener('click', removeStorageWatchedFilm);
 
 
-        }  else if(evt.target.className === 'btn-queue') {
-         addToQueueFilm(oneMovieResponse);
+//         }  else if(evt.target.className === 'btn-queue') {
+//          addToQueueFilm(oneMovieResponse);
 
-         const btnQueue = document.getElementById('btn-q');
-         const btnRemoveQueueFilm = document.getElementById('btn-rq');
+//          const btnQueue = document.getElementById('btn-q');
+//          const btnRemoveQueueFilm = document.getElementById('btn-rq');
 
-         btnQueue.classList.add('hide');
-         btnRemoveQueueFilm.classList.remove('hide');
-         btnRemoveQueueFilm.addEventListener('click', removeStorageQueueFilm);
-         console.log('Click!2');
-        }  
-    }
-    } catch(error) {
-        console.log(error);
-    };
-    };
+//          btnQueue.classList.add('hide');
+//          btnRemoveQueueFilm.classList.remove('hide');
+//          btnRemoveQueueFilm.addEventListener('click', removeStorageQueueFilm);
+//          console.log('Click!2');
+//         }  
+//     }
+//     } catch(error) {
+//         console.log(error);
+//     };
+//     };
 
 
 refs.form.addEventListener('submit', onFormSubmit);

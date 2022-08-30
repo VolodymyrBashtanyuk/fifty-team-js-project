@@ -17,6 +17,7 @@ function openCardFilm (e) {
     } 
 
 refsModal.backdrop.classList.add('is-open');
+document.body.style.overflow = 'hidden';
 document.addEventListener('keydown', closeModalEsc);
 document.removeEventListener('click', closeModalEsc);
 
@@ -28,6 +29,7 @@ function closeModalEsc(evt) {
 
     refsModal.backdrop.classList.remove('is-open');
     document.removeEventListener('keydown', closeModalEsc);
+    document.body.style.overflow = 'visible';
     }
   };
 
@@ -42,3 +44,5 @@ function closeModalClick(e){
         document.removeEventListener('click', closeModalClick);
     };
 }
+
+export {openCardFilm, closeModalEsc, closeModalClick}

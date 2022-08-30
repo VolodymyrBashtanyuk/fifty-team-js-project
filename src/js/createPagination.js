@@ -1,8 +1,7 @@
 import theMovieDbApi from "./fetchMovies";
 const movieDbApi = new theMovieDbApi();
 import {insertCreatedObject} from './createOneObject';
-import spinner from './preLoader'
-
+import spinner from './preLoader';
 
 let currentPage;
 let lastPage;

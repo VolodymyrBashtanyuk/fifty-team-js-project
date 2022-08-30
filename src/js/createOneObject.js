@@ -59,5 +59,5 @@ function smartGenre(arrayGenreInCard, genreInString) {
     return cutGenre; 
 }
 
-export { refs, insertCreatedObject };
+export { refs, insertCreatedObject};
 
