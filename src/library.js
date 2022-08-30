@@ -4,5 +4,4 @@ import { getWatchedData  } from "./js/library/getWatchedData";
 import { insertCreatedObject } from "./js/library/insertCreatedObject";
 
 const filmsArr = getWatchedData()
-
 insertCreatedObject(filmsArr)
