@@ -3,7 +3,7 @@ import { insertCreatedObject} from './js/createOneObject'
 import spinner from './js/preLoader'
 import { getGenre, saveGenre } from './js/genre';
 import etsGenre from './js/etcGenre';
-
+import {refs, filterResults} from './js/keywordSearch';
 
 
 import { createPagination } from "./js/createPagination"
@@ -88,4 +88,18 @@ async function oneMovies(e) {
         console.log(error);
     };
     };
+
+refs.form.addEventListener('submit', onFormSubmit);
+async function onFormSubmit (e) {
+    e.preventDefault();
+    refs.falseresultMessage.classList.add('hide');
+    const searchName = e.currentTarget.elements.search.value;
+    try {
+        const searchMovie = await movieDbApi.fetchMovieName(searchName);
+        filterResults(searchMovie);
+        }
+    catch (error) {
+            console.log(error);
+            }
+    } 
 
