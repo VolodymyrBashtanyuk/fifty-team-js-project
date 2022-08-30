@@ -20,8 +20,8 @@ import createdCardFilm from "./js/markUpModal";
 
 import addToWatchedFilm from "./js/localStorageToWatchedFilm";
 import addToQueueFilm from "./js/localStorageToQueueFilm";
-import removeStorageWatchedFilm from './js/localStorageToWatchedFilm';
-import removeStorageQueueFilm from './js/localStorageToQueueFilm';
+import removeStorageWatchedFilm from './js/removeStorageWatchedFilm';
+import removeStorageQueueFilm from './js/removeStorageQueueFilm';
 
 async function movies() {
 
@@ -59,7 +59,10 @@ async function oneMovies(e) {
         spinner.removeSpinner();
 
     document.addEventListener('click', localStorageFilmData);
-
+   
+    function verifyIdWatchedFilm() {
+    const btnWatched = document.getElementById('btn-w');
+    const btnRemoveWatchedFilm = document.getElementById('btn-rw');
     const arrayDataFilm = JSON.parse(localStorage.getItem('filmsWatched')) || '[]';
     let found = false;
 
@@ -67,29 +70,64 @@ async function oneMovies(e) {
         if(oneMovieResponse.id === arrayDataFilm[i].id) {
     found = true;
     console.log('yeah');
-           
+    btnWatched.classList.add('hide');
+    btnRemoveWatchedFilm.classList.remove('hide');
+    btnRemoveWatchedFilm.addEventListener('click', removeStorageWatchedFilm);
+    return;
+        } 
+    } 
+    }
 
+    function verifyIdQueueFilm() {
+        const btnQueue = document.getElementById('btn-q');
+       const btnRemoveQueueFilm = document.getElementById('btn-rq');
+
+        const arrayDataFilm = JSON.parse(localStorage.getItem('filmsQueue')) || '[]';
+    let found = false;
+
+    for(let i = 0; i <= arrayDataFilm.length; i += 1) {
+        if(oneMovieResponse.id === arrayDataFilm[i].id ) {
+    found = true;
+    console.log('yeahQ');
+    btnQueue.classList.add('hide');
+    btnRemoveQueueFilm.classList.remove('hide');
+    btnRemoveQueueFilm.addEventListener('click', removeStorageQueueFilm);
     return;
         }
     } 
+    }
+    verifyIdWatchedFilm();
+    verifyIdQueueFilm();
+  
+    
 
     function localStorageFilmData(evt) {
         const btn = evt.target;   
     if (btn.className === 'btn-watched') {
         
         addToWatchedFilm(oneMovieResponse);
-        btn.textContent = 'remove watched film';
-       
+        const btnWatched = document.getElementById('btn-w');
+        const btnRemoveWatchedFilm = document.getElementById('btn-rw');
          console.log('Click!');
+         btnWatched.classList.add('hide');
+         btnRemoveWatchedFilm.classList.remove('hide');
+         btnRemoveWatchedFilm.addEventListener('click', removeStorageWatchedFilm);
+
 
         }  else if(btn.className === 'btn-queue') {
          addToQueueFilm(oneMovieResponse);
-         btn.textContent = 'remove queued film';
+         const btnQueue = document.getElementById('btn-q');
+         const btnRemoveQueueFilm = document.getElementById('btn-rq');
+         btnQueue.classList.add('hide');
+         btnRemoveQueueFilm.classList.remove('hide');
+         btnRemoveQueueFilm.addEventListener('click', removeStorageQueueFilm);
          console.log('Click!2');
-         document.removeEventListener('click', localStorageFilmData)
+        
         }  
-       
+        
+  
     }
+    
 } catch(error) {
         console.log(error);
     };

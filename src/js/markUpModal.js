@@ -9,7 +9,7 @@ function createModalFilm(data) {
       title,
       popularity,
       original_title,
-      genre,
+      genres,
       overview,
       poster_path,
       vote_average,
@@ -52,7 +52,7 @@ function createModalFilm(data) {
             </tr>
             <tr>
               <td class="modal-movie-table__item-name">Genre</td>
-              <td class="modal-movie-table__item-value">${genre}</td>
+              <td class="modal-movie-table__item-value">${genres}</td>
             </tr>
           </tbody>
           </table>
@@ -63,10 +63,16 @@ function createModalFilm(data) {
       
         <ul class="modal-movie__btn-list">
             <li>
-                <button class="btn-watched" type="button">ADD TO WATCHED</button>
+                <button class="btn-watched" id='btn-w' type="button">ADD TO WATCHED</button>
             </li>
             <li>
-                <button class="btn-queue" type="button">ADD TO QUEUE</button>
+                <button class="btn-watched hide" id='btn-rw' type="button">REMOVE FROM WATCHED</button>
+            </li>
+            <li>
+                <button class="btn-queue" id='btn-q'  type="button">ADD TO QUEUE</button>
+            </li>
+            <li>
+                <button class="btn-queue hide" id='btn-rq' type="button">REMOVE FROM QUEUE</button>
             </li>
         </ul>
 
