@@ -10,7 +10,8 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-
+}
+.page__header--home {
     background-image: url(../images/header/header-bg_s@1x.png);
     opacity: 0.9;
     background-color: var(--header-bg);
@@ -64,6 +65,7 @@
     margin-left: 40px;
 }
 .nav__link {
+    padding: 2px;
     position: relative;
     text-transform: uppercase;
     font-size: 12px;
@@ -139,6 +141,32 @@
 }
 
 // My library header 
+.page__header--library {
+    background-image: url(/src/images/header/bg-library_s.png);
+    opacity: 0.9;
+    background-color: var(--header-bg);
+    @include mq(retina) {
+        background-image: url(/src/images/header/bg-library_s@2x.png);
+        background-color: var(--header-bg);
+    }
+    @include mq(tablet) {
+        height: 216px;
+        background-image: url(/src/images/header/bg-library_m.png);  
+        background-color: var(--header-bg);
+        @include mq(retina) {
+            background-image: url(/src/images/header/bg-library_m@2x.png);
+            background-color: var(--header-bg);
+        }
+    }    
+    @include mq(desktop) {
+            background-image: url(/src/images/header/bg-library_l.png); 
+            background-color: var(--header-bg);
+            @include mq(retina) {
+                background-image: url(/src/images/header/bg-library_l@2x.png);
+                background-color: var(--header-bg);
+            }   
+            }
+}
 .header__btns {
     display: flex;
     justify-content: center;
@@ -163,6 +191,7 @@
         width: 152px;
     }
 }
+
 .header__btn:hover,
 .header__btn:focus {
     background-color: var(--btn-rating-bg);
