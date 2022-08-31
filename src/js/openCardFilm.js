@@ -12,7 +12,7 @@ refsModal.backdrop.addEventListener('click', closeModalClick);
 function openCardFilm (e) {
     e.preventDefault();
    
-    if (!e.target.classList.contains('info-title') &&  !e.target.classList.contains('poster')) {
+    if (!e.target.classList.contains('info-title') && !e.target.classList.contains('poster')) {
         return;
     } 
 refsModal.backdrop.classList.remove('hide');
