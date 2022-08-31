@@ -39,21 +39,21 @@ function localStorageFilmData(evt) {
         addToWatchedFilm(oneMovieResponse);
         const btnWatched = document.getElementById('btn-w');
         const btnRemoveWatchedFilm = document.getElementById('btn-rw');
-            btnWatched.classList.add('hide');
-            btnRemoveWatchedFilm.classList.remove('hide');
-            btnRemoveWatchedFilm.addEventListener('click', removeStorageWatchedFilm);
+        btnWatched.classList.add('hide');
+        btnRemoveWatchedFilm.classList.remove('hide');
+        btnRemoveWatchedFilm.addEventListener('click', removeStorageWatchedFilm);
 
-        }  else if(evt.target.className === 'btn-queue') {
-            addToQueueFilm(oneMovieResponse);
+    }  else if(evt.target.className === 'btn-queue') {
+        addToQueueFilm(oneMovieResponse);
 
-            const btnQueue = document.getElementById('btn-q');
-            const btnRemoveQueueFilm = document.getElementById('btn-rq');
+        const btnQueue = document.getElementById('btn-q');
+        const btnRemoveQueueFilm = document.getElementById('btn-rq');
 
-            btnQueue.classList.add('hide');
-            btnRemoveQueueFilm.classList.remove('hide');
-            btnRemoveQueueFilm.addEventListener('click', removeStorageQueueFilm);
-        }  
-            document.removeEventListener('click', localStorageFilmData);
+        btnQueue.classList.add('hide');
+        btnRemoveQueueFilm.classList.remove('hide');
+        btnRemoveQueueFilm.addEventListener('click', removeStorageQueueFilm);
+    }  
+        document.removeEventListener('click', localStorageFilmData);
 
 }
 
@@ -97,7 +97,6 @@ function verifyIdQueueFilm() {
 }
   
 } catch(error) {
-
         console.log(error);
 };
 };
