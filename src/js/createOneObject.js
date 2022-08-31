@@ -7,7 +7,7 @@ const refs = {
 
 import { filmGenre } from './genre'
 
-const noImg ='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQT6UB-bP8Q1VOTxmMLs-1v1d6LN4b7H7U3Ng&usqp=CAU';
+const noImg ='https://pixabay.com/get/g8ff089af213f7f36d1b7fabc1c8d5536a6a1cfdce9fd273bb5b53f7689c1046d065883ec139843d5671e752c90fc7d25af4a0a10c6f515e8c575547e6ee6da5d_1280.jpg';
 const imageURL = "https://image.tmdb.org/t/p/w500";
 
 function createOneObject(film) {
@@ -59,5 +59,5 @@ function smartGenre(arrayGenreInCard, genreInString) {
     return cutGenre; 
 }
 
-export { refs, insertCreatedObject};
+export { refs, insertCreatedObject, smartGenre};
 

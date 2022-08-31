@@ -1,15 +1,17 @@
-import { filmGenre } from '../genre'
+import { smartGenre } from '../createOneObject'
 
 
 const libraryGallery = document.querySelector('.gallery')
 
 const imageURL = "https://image.tmdb.org/t/p/w500";
+const noImg ='https://pixabay.com/get/g8ff089af213f7f36d1b7fabc1c8d5536a6a1cfdce9fd273bb5b53f7689c1046d065883ec139843d5671e752c90fc7d25af4a0a10c6f515e8c575547e6ee6da5d_1280.jpg';
 
 
 function createOneObject(film){
   const { title, genres, poster_path, release_date, id , vote_average} = film;
-  const genreCard = genres.map(ganre => ganre.name).join(',');
-
+  const arrayGenreInCard = genres.map(ganre => ganre.name);
+  const genreInString = arrayGenreInCard.join(", ");
+  const genreInCard = smartGenre(arrayGenreInCard, genreInString);
 
 
 return `
@@ -23,8 +25,8 @@ return `
     </div>
     <p class="info-title">${title ?? ''}</p>
     <div class="info-title info-item">
-      <p class="film__genre">${genreCard ? genreCard : ''}</p>
-     
+      <p class="film__genre">${genreInCard ? genreInCard : ''}</p>
+        <button class="btn__etc ${arrayGenreInCard.length <= 3 ? 'hide' : ''}" type="button" data-all_ganre="${genreInString}">...</button>
       </p>
       <p class="date">${release_date.slice(0,4) ?? ''}
       </p>
@@ -45,3 +47,5 @@ export function insertCreatedObject (arrayImages) {
   libraryGallery.innerHTML = result;
 
 };
+
+export { libraryGallery }
