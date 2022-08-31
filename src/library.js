@@ -12,6 +12,7 @@ import oneMovies from "./js/oneMovie";
 
 import addToWatchedFilm from "./js/localStorageToWatchedFilm";
 import addToQueueFilm from "./js/localStorageToQueueFilm";
+import onListenerBtnEtc from './js/etcGenre'
 
 import { refs, onWatchedBtnClick } from './js/library/renderWatchedData';
 import onQueueBtnClick from './js/library/renderQueueData';

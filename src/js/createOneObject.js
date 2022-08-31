@@ -30,8 +30,7 @@ return `
       <p class="film__genre">${genreInCard ? genreInCard : ''}</p>
       <button class="btn__etc ${arrayGenreInCard.length <= 3 ? 'hide' : ''}" type="button"
         data-all_ganre="${genreInString}">...</button>
-      </p>
-      <p class="">${release_date.slice(0,4) ?? ''}
+      <p class="date">${release_date.slice(0,4) ?? ''}
       </p>
     </div>
   </a>
