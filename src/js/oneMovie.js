@@ -66,7 +66,7 @@ verifyIdQueueFilm();
     const arrayDataFilm = JSON.parse(localStorage.getItem('filmsWatched')) || '[]';
     let found = false;
 
-    for(let i = 0; i <= arrayDataFilm.length; i += 1) {
+    for(let i = 0; i < arrayDataFilm.length; i += 1) {
         console.log(arrayDataFilm.id)
     if(oneMovieResponse.id === arrayDataFilm[i].id) {
        
@@ -85,7 +85,7 @@ function verifyIdQueueFilm() {
     const arrayDataFilm = JSON.parse(localStorage.getItem('filmsQueue')) || '[]';
     let found = false;
 
-    for(let i = 0; i <= arrayDataFilm.length; i += 1) {
+    for(let i = 0; i < arrayDataFilm.length; i += 1) {
         if(oneMovieResponse.id === arrayDataFilm[i].id ) {
     found = true;
     btnQueue.classList.add('hide');
