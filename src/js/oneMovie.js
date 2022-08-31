@@ -25,10 +25,8 @@ cardOneFilm.addEventListener('click', oneMovies);
 export default async function oneMovies(e) {
     spinner.startSpinner();
     try {
-        const id = e.target.parentNode.parentNode.parentNode.id;
-       
+        const id = e.target.parentNode.parentNode.parentNode.id || e.target.parentNode.parentNode.id;
         const oneMovieResponse = await movieDbApi.fetchOneMovie(id);
-        
         createdCardFilm(oneMovieResponse);
         spinner.removeSpinner();
 
@@ -92,6 +90,7 @@ function verifyIdQueueFilm() {
     return;
         }
     } 
+   
 }
   
 } catch(error) {
