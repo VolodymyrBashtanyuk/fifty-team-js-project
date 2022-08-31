@@ -13,13 +13,11 @@ import oneMovies from "./js/oneMovie";
 import addToWatchedFilm from "./js/localStorageToWatchedFilm";
 import addToQueueFilm from "./js/localStorageToQueueFilm";
 
-import onWatchedBtnClick from './js/library/renderWatchedData';
+import { refs, onWatchedBtnClick } from './js/library/renderWatchedData';
 import onQueueBtnClick from './js/library/renderQueueData';
 
-const btnWatchedHeaderEl = document.querySelector('.header__it--watched');
-const btnQueueHeaderEl = document.querySelector('.header__it--queue');
-
-btnWatchedHeaderEl.addEventListener('click', onWatchedBtnClick);
-btnQueueHeaderEl.addEventListener('click', onQueueBtnClick);
+refs.btnWatchedHeaderEl.classList.add('is-active');
+refs.btnWatchedHeaderEl.addEventListener('click', onWatchedBtnClick);
+refs.btnQueueHeaderEl.addEventListener('click', onQueueBtnClick);
 
 onWatchedBtnClick();
