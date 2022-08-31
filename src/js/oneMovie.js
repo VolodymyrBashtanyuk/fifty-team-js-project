@@ -28,6 +28,7 @@ export default async function oneMovies(e) {
         const id = e.target.parentNode.parentNode.parentNode.id || e.target.parentNode.parentNode.id;
         const oneMovieResponse = await movieDbApi.fetchOneMovie(id);
         createdCardFilm(oneMovieResponse);
+   
         spinner.removeSpinner();
 
 document.addEventListener('click', localStorageFilmData);
@@ -51,8 +52,6 @@ function localStorageFilmData(evt) {
         btnRemoveQueueFilm.classList.remove('hide');
         btnRemoveQueueFilm.addEventListener('click', removeStorageQueueFilm);
     }  
-        document.removeEventListener('click', localStorageFilmData);
-
 }
 
 verifyIdWatchedFilm();
@@ -87,6 +86,7 @@ function verifyIdQueueFilm() {
     btnQueue.classList.add('hide');
     btnRemoveQueueFilm.classList.remove('hide');
     btnRemoveQueueFilm.addEventListener('click', removeStorageQueueFilm);
+
     return;
         }
     } 
