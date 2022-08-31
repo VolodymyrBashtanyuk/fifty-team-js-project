@@ -1,70 +1,73 @@
 .pagination {
-    display: flex;
-    list-style: none;
-    justify-content: center;
-    padding: 0;
-    margin: 40px 0;
-    @include mq(tablet){
-        margin: 60px 0;
-    }
+  cursor: pointer;
+  display: flex;
+  list-style: none;
+  justify-content: center;
+  padding: 0;
+  margin: 52px 0;
+  @include mq(tablet) {
+    margin: 70px 0;
+  }
+  @include mq(desktop) {
+    margin: 72px 0;
+  }
 }
-
-
 
 [data-btn],
 .empryBox {
-    width: 40px;
-    height: 40px;
-    border: none;
-    border-radius: 5px;
-    background-color: var(--secondary-txt);
-    font-size: 12px;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--secondary-txt);
+  font-size: 12px;
 }
 
 .empryBox {
-    display: none;
-    align-items: center;
-    justify-content: center;
-    @include mq(tablet){
-        display: flex;
-    }
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  @include mq(tablet) {
+    display: flex;
+  }
 }
 
 .firstPage,
-.lastPage{
-    display: none;
-    @include mq(tablet) {
-        display: block;
-    }
+.lastPage {
+  display: none;
+  @include mq(tablet) {
+    display: block;
+  }
 }
 
 .firstPage.current,
-.lastPage.current{
-    display: block;
+.lastPage.current {
+  display: block;
 }
-
 
 .pagination [data-btn]:hover,
 .pagination [data-btn]:hover {
-    background-color: var(--btn-rating-bg);
+  background-color: var(--btn-rating-bg);
 }
 
 .current {
-    color: var(--secondary-txt);
-    background-color: var(--btn-rating-bg);
+  color: var(--secondary-txt);
+  background-color: var(--btn-rating-bg);
 }
 
-.left-arrow, 
-.right-arrow{
-    background-repeat: no-repeat;
-    background-position: center;
-    background-color: var(--footer-bg);
+.left-arrow,
+.right-arrow {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: var(--footer-bg);
 }
 
-.left-arrow{
-    background-image: url(../img/arrow-left.svg);
+.left-arrow {
+  background-image: url(../img/arrow-left.svg);
 }
 
-.right-arrow{
-    background-image: url(../img/arrow-right.svg);
+.right-arrow {
+  background-image: url(../img/arrow-right.svg);
 }
