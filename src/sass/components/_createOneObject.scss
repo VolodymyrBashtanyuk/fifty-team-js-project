@@ -78,7 +78,6 @@
 .info-item {
     margin-top: 0;
     display: flex;
-    // text-align: center;
     text-transform: none;
     color: var(--body-second-txt);
 }
@@ -86,11 +85,6 @@
 &:not(:first-child) {
         margin-left: 8px;
     }
-
-    // &:first-child {
-        // border-right: 1px solid var(--body-second-txt);
-        // padding-right: 8px;
-    // }
 }
 
 .btn__etc {
@@ -106,7 +100,7 @@
     border-radius: 5px;
     padding: 1px 6px;
     text-align: center;
-    // justify-content: center;
+    margin-left: 8px;
 
     @include mq(tablet) {
         padding: 1px 10px;

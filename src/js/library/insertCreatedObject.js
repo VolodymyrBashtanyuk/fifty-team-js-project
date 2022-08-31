@@ -30,7 +30,9 @@ return `
       
       <p class="date">${release_date.slice(0,4) ?? ''}
       </p>
-      <p class="rating">${vote_average.toFixed(1)}</p> 
+      <div>
+      <p class="rating">${vote_average.toFixed(1)}</p>
+      </div>
     </div>
   </a>
 </li>
