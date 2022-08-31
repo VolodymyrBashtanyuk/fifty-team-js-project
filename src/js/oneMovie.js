@@ -67,9 +67,7 @@ verifyIdQueueFilm();
     let found = false;
 
     for(let i = 0; i < arrayDataFilm.length; i += 1) {
-        console.log(arrayDataFilm.id)
     if(oneMovieResponse.id === arrayDataFilm[i].id) {
-       
     found = true;
     btnWatched.classList.add('hide');
     btnRemoveWatchedFilm.classList.remove('hide');
