@@ -15,7 +15,7 @@ function createModalFilm(data) {
       vote_average,
       vote_count,
     } = data;
-    const genreName = genres.map(ganre => ganre.name).join(' ');
+    const genreName = genres.map(ganre => ganre.name).join(', ');
 
   return `
       
