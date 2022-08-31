@@ -4,7 +4,6 @@ refs.gallery.addEventListener('click', onListenerBtnEtc);
 
 export default function onListenerBtnEtc(e) {
     e.preventDefault();
-    const btnEtc = document.querySelectorAll('.btn__etc');
 
     if (e.target.nodeName !== "BUTTON") {
         return;

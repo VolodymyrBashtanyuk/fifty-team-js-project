@@ -3,6 +3,7 @@ const refsModal = {
   modal: document.querySelector('.modal-movie-cont'),
 }
 const imageURL = "https://image.tmdb.org/t/p/w500";
+const noImg ='https://pixabay.com/get/g8ff089af213f7f36d1b7fabc1c8d5536a6a1cfdce9fd273bb5b53f7689c1046d065883ec139843d5671e752c90fc7d25af4a0a10c6f515e8c575547e6ee6da5d_1280.jpg';
 
 function createModalFilm(data) {
     const {
@@ -20,39 +21,42 @@ function createModalFilm(data) {
   return `
       
       <div class="modal-movie-cont__img">
-        <img class="modal-movie-img" src="${imageURL}${poster_path}" alt="${title}">
+      ${poster_path ? 
+      `<img class="poster" src="${imageURL}${poster_path}" alt="${title}"  />` : 
+      `<img class="poster" src=${noImg} alt="${title}" />`
+      }
       </div>
       
       <div class="modal-movie-cont__data">
 
         <div class="modal-movie-cont__about">
-          <h2 class="modal-movie__title">${title}</h2>
+          <h2 class="modal-movie__title">${title ?? ''}</h2>
           <table class="modal-movie-table">
           <tbody>
             <tr>
               <td class="modal-movie-table__item-name">Vote / Votes</td>
               <td class="modal-movie-table__item-value">
-                <span class="vote">${vote_average.toFixed(1)}</span> / 
-                <span class="votes">${vote_count}</span>
+                <span class="vote">${vote_average.toFixed(1) ?? ''}</span> / 
+                <span class="votes">${vote_count ?? ''}</span>
               </td>
             </tr>
             <tr>
               <td class="modal-movie-table__item-name">Popularity</td>
-              <td class="modal-movie-table__item-value">${popularity.toFixed(1)}</td>
+              <td class="modal-movie-table__item-value">${popularity.toFixed(1) ?? ''}</td>
             </tr>
             <tr>
               <td class="modal-movie-table__item-name">Original Title</td>
-              <td class="modal-movie-table__item-value">${original_title}</td>
+              <td class="modal-movie-table__item-value">${original_title ?? ''}</td>
             </tr>
             <tr>
               <td class="modal-movie-table__item-name">Genre</td>
-              <td class="modal-movie-table__item-value">${genreName}</td>
+              <td class="modal-movie-table__item-value">${genreName ?? ''}</td>
             </tr>
           </tbody>
           </table>
 
           <h3 class="modal-movie-about">ABOUT</h3>
-          <p class="modal-movie-descr-movie">${overview}</p>
+          <p class="modal-movie-descr-movie">${overview ?? ''}</p>
         </div>
       
         <ul class="modal-movie__btn-list">
