@@ -93,6 +93,13 @@
     background-color: transparent;
 }
 
+.btn__etc:hover,
+.btn__etc:focus {
+    cursor: pointer;
+    transform: scale(1.5);
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+}
+
 .rating {
     display: flex;
     color: var( --secondary-txt);
