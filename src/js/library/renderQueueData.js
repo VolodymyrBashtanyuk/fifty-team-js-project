@@ -1,9 +1,10 @@
 import getQueueData from './getQueueData';
 import { insertCreatedObject } from './insertCreatedObject';
-const btnWatchedHeaderEl = document.querySelector('.header__it--watched');
+import { refs } from './renderWatchedData';
 
 export default function onQueueBtnClick (e) {
-    btnWatchedHeaderEl.classList.remove('header__it--watched');
+    refs.btnWatchedHeaderEl.classList.remove('is-active');
+    refs.btnQueueHeaderEl.classList.add('is-active');
     const arrayFilms = getQueueData();
     insertCreatedObject(arrayFilms);
 }
