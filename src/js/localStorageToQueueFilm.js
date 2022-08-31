@@ -3,6 +3,7 @@
 // const dataWatchedStorage = getWatchedData();
 // const dataQueueStorage = getQueueData();
 
+
 let listQueue = JSON.parse(localStorage.getItem('filmsQueue')) || [];
 
 export default function addToQueueFilm(data) {
@@ -14,5 +15,4 @@ export default function addToQueueFilm(data) {
     }  
     listQueue.push(film);
     localStorage.setItem('filmsQueue', JSON.stringify(listQueue));
-
 };
