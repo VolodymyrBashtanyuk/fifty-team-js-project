@@ -103,7 +103,24 @@
 }
 
 .btn__etc {
-  display: inline-block;
-  color: var(--primery-text-color);
-  background-color: transparent;
+    display: inline-block;
+    color: var(--primery-text-color);
+    background-color: transparent;
+}
+
+.rating{
+    display: flex;
+    align-items: center;
+    color: var( --secondary-txt);
+    background-color: var(--btn-rating-bg);
+    border-radius: 4px;
+    padding-right: 10px;
+}
+.date{
+    display: flex;
+    align-items: center;
+    margin-left: 8px;
+    padding-left: 8px;
+    border-left: 1px solid var(--body-second-txt);
+
 }

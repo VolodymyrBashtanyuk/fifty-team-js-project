@@ -8,14 +8,7 @@ let listWatchedFilm = JSON.parse(localStorage.getItem('filmsWatched')) || [];
         return [];
         }
         listWatchedFilm.push(film)
-        localStorage.setItem('filmsWatched', JSON.stringify(listWatchedFilm)); 
-};
+        localStorage.setItem('filmsWatched', JSON.stringify(listWatchedFilm));
 
+    };
 
-  
-// export default function removeStorageWatchedFilm(index) {
-//     listWatchedFilm.splice(index, 1);
-//     localStorage.setItem('filmsWatched', JSON.stringify(listWatchedFilm));
-
-    
-//   }
