@@ -4,7 +4,7 @@ import spinner from './js/preLoader'
 import { getGenre, saveGenre } from './js/genre';
 const debounce = require('lodash.debounce');
 const DEBOUNCE_DELAY = 300;
-
+import { onCardFilmClick } from "./js/oneMovie";
 
 import addToWatchedFilm from "./js/localStorageToWatchedFilm";
 import addToQueueFilm from "./js/localStorageToQueueFilm";
@@ -72,5 +72,10 @@ async function onFormSubmit (e) {
             console.log(error);
             }
 } 
-    
+ 
+const cardOneFilm = document.querySelector('.gallery');
+cardOneFilm.addEventListener('click', onCardFilmClick);
+
+
+
 export {movies, oneMovies, movieDbApi}

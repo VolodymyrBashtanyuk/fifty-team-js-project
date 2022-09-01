@@ -7,7 +7,7 @@ import footer from './js/modalFooter';
 import createdCardFilm from "./js/markUpModal";
 import spinner from './js/preLoader';
 import openCardFilm from './js/openCardFilm';
-
+import { onCardFilmClick } from "./js/oneMovie";
 import oneMovies from "./js/oneMovie";
 
 import addToWatchedFilm from "./js/localStorageToWatchedFilm";
@@ -21,3 +21,5 @@ refs.btnWatchedHeaderEl.addEventListener('click', onWatchedBtnClick);
 refs.btnQueueHeaderEl.addEventListener('click', onQueueBtnClick);
 
 onWatchedBtnClick();
+const cardOneFilm = document.querySelector('.gallery');
+cardOneFilm.addEventListener('click', onCardFilmClick);
