@@ -1,5 +1,5 @@
 import getQueueData from './getQueueData';
-import { insertCreatedObject } from './insertCreatedObject';
+import { insertCreatedObject } from './insertMainMarkup';
 import { refs } from './renderWatchedData';
 
 export default function onQueueBtnClick (e) {

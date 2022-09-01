@@ -1,6 +1,7 @@
 let listWatchedFilm = JSON.parse(localStorage.getItem('filmsWatched')) || [];
 
 export default function removeStorageWatchedFilm(index) {
+  
     const btnWatched = document.getElementById('btn-w');
     const btnRemoveWatchedFilm = document.getElementById('btn-rw');
     

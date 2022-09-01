@@ -1,4 +1,4 @@
-import { smartGenre } from '../createOneObject'
+import { smartGenre } from '../createMainMarkup'
 
 
 const libraryGallery = document.querySelector('.gallery')

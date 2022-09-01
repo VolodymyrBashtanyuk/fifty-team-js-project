@@ -1,5 +1,5 @@
 import { createPagination, saveQueryTypeLs } from "./createPagination";
-import { insertCreatedObject} from './createOneObject';
+import { insertCreatedObject} from './createMainMarkup';
 import spinner from './preLoader';
 
 export const refs = {
