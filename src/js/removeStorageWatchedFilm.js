@@ -1,10 +1,4 @@
-// import oneMovies from './movieInfo';
-
-// // console.log(oneMovies.id)
-
 let listWatchedFilm = JSON.parse(localStorage.getItem('filmsWatched')) || [];
-
-console.log(listWatchedFilm)
 
 export default function removeStorageWatchedFilm(index) {
   

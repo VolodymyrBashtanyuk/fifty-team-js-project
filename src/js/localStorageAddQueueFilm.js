@@ -1,8 +1,3 @@
-// import getWatchedData from './library/getWatchedData';
-// import getQueueData from './library/getQueueData';
-// const dataWatchedStorage = getWatchedData();
-// const dataQueueStorage = getQueueData();
-
 
 let listQueue = JSON.parse(localStorage.getItem('filmsQueue')) || [];
 
