@@ -7,8 +7,6 @@ const debounce = require('lodash.debounce');
 const DEBOUNCE_DELAY = 300;
 import { onCardFilmClick } from "./js/movieInfo";
 import oneMovies from "./js/movieInfo";
-// import addToWatchedFilm from "./js/localStorageToWatchedFilm";
-// import addToQueueFilm from "./js/localStorageToQueueFilm";
 
 import etsGenre from './js/etcGenre';
 import openCardFilm from './js/openCardFilm'
@@ -25,8 +23,6 @@ import { createPagination, getCurrentPageLs, saveQueryTypeLs } from "./js/create
 const movieDbApi = new theMovieDbApi();
 
 
-
-// import openCardFilm from './js/openCardFilm'
 
 async function movies() {
 

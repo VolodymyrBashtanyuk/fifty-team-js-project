@@ -1,5 +1,3 @@
-
-
 import { filmGenre } from './js/genre'
 import { getWatchedData  } from "./js/library/getWatchedData";
 import { insertCreatedObject } from "./js/library/insertMainMarkup";

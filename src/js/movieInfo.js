@@ -15,7 +15,6 @@ import getQueueData from './library/getQueueData';
 
 export function onCardFilmClick(e) {
     const id = e.target.parentNode.parentNode.parentNode.id || e.target.parentNode.parentNode.id;
-    console.log(id);
     oneMovies(id);
 }
 export default async function oneMovies(id) {
@@ -37,7 +36,6 @@ export default async function oneMovies(id) {
         function filterLocalStorageWatched (idOpenFilm) {
             const arrayWatchedFilms = getWatchedData();
             const result = arrayWatchedFilms.some(film => film.id === idOpenFilm);
-            console.log(result);
             if (result === true) {
                 refsEl.btnWatched.classList.add('hide');
                 refsEl.btnRemoveWatched.classList.remove('hide');
@@ -59,7 +57,6 @@ export default async function oneMovies(id) {
             }
             function onWatchedBtnClick() {
                 addToWatchedFilm(oneMovieResponse);
-                console.log(oneMovieResponse);
                 refsEl.btnWatched.classList.add('hide');
                 refsEl.btnRemoveWatched.classList.remove('hide');
                 refsEl.btnWatched.removeEventListener('click', onWatchedBtnClick);
@@ -70,7 +67,6 @@ export default async function oneMovies(id) {
             function filterLocalStorageQueue (idOpenFilm) {
                 const arrayWatchedFilms = getQueueData();
                 const result = arrayWatchedFilms.some(film => film.id === idOpenFilm);
-                console.log(result);
                 if (result === true) {
                     refsEl.btnQueue.classList.add('hide');
                     refsEl.btnRemoveQueue.classList.remove('hide');
@@ -90,7 +86,6 @@ export default async function oneMovies(id) {
             }
             function onQueueBtnClick() {
                 addToQueueFilm(oneMovieResponse);
-                console.log(oneMovieResponse);
                 refsEl.btnQueue.classList.add('hide');
                 refsEl.btnRemoveQueue.classList.remove('hide');
                 refsEl.btnQueue.removeEventListener('click', onQueueBtnClick);

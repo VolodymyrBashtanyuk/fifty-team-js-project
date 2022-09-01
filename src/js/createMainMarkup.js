@@ -43,8 +43,6 @@ return arrayImages.reduce((acc,film)=>acc + createOneObject(film),"");
 function insertCreatedObject (arrayImages) {
   const result = generateMarkup(arrayImages);
   refs.gallery.innerHTML = result;
- 
-
 };
 
 function smartGenre(arrayGenreInCard, genreInString) {
