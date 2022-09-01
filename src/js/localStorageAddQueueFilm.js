@@ -10,5 +10,4 @@ export default function addToQueueFilm(data) {
     }  
     listQueue.push(film);
     localStorage.setItem('filmsQueue', JSON.stringify(listQueue));
-    console.log(listQueue);
 };

@@ -101,7 +101,6 @@ async function movies() {
 
     try{
         const response = await movieDbApi.fetchMovies();
-        console.log(response)
         insertCreatedObject(response.results)
         createPagination(response)
         spinner.removeSpinner()

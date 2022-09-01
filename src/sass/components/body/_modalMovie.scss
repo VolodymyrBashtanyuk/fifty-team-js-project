@@ -77,8 +77,6 @@
 }
 
 .modal-movie-img-close {
-  // fill: #f00;
-
   height: 18px;
   width: 18px;
 }
@@ -103,8 +101,6 @@
 
 .modal-movie-img {
   object-fit: cover;
-  // width: 150px;
-  // height: 200px;
 }
 
 .modal-movie-cont{
@@ -114,7 +110,6 @@
   @include mq(desktop) {
     display: flex;
   }
-
 }
 
 .modal-movie-cont__about {

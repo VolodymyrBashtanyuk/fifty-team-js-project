@@ -9,6 +9,5 @@ let listWatchedFilm = JSON.parse(localStorage.getItem('filmsWatched')) || [];
         } 
         listWatchedFilm.push(film)
         localStorage.setItem('filmsWatched', JSON.stringify(listWatchedFilm));
-        console.log(listWatchedFilm);
     };
 
