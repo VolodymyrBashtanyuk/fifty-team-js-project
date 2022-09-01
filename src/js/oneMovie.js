@@ -52,7 +52,6 @@ function localStorageFilmData(evt) {
         btnRemoveQueueFilm.classList.remove('hide');
         btnRemoveQueueFilm.addEventListener('click', removeStorageQueueFilm);
     }  
-    document.removeEventListener('click', localStorageFilmData);
 }
 
 verifyIdWatchedFilm();
