@@ -9,6 +9,5 @@ export function onWatchedBtnClick (e) {
     refs.btnWatchedHeaderEl.classList.add('is-active');
     refs.btnQueueHeaderEl.classList.remove('is-active');
     const arrayFilms = getWatchedData();
-    
     insertCreatedObject(arrayFilms);
 }
