@@ -222,6 +222,7 @@ margin-bottom: 8px;
   font-size: 14px;
   line-height: 1.33;
   color: var(--secondary-txt);
+  cursor: pointer;
   text-transform: uppercase;
 
   transition-property: transform, background-color;
@@ -266,6 +267,7 @@ margin-bottom: 8px;
   font-size: 14px;
   line-height: 1.33;
   color: var(--primery-txt);
+  cursor: pointer;
   text-transform: uppercase;
   transition-property: background-color, transform;
   transform-origin: left;
