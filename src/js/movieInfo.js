@@ -14,7 +14,9 @@ import getQueueData from './library/getQueueData';
 
 
 export function onCardFilmClick(e) {
-    const id = e.target.parentNode.parentNode.parentNode.id || e.target.parentNode.parentNode.id;
+    if (!e.target.closest('.film-card')) return
+    const id = e.target.closest('.film-card').id
+    // const id = e.target.parentNode.parentNode.parentNode.id || e.target.parentNode.parentNode.id;
     oneMovies(id);
 }
 export default async function oneMovies(id) {
