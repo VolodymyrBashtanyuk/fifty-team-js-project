@@ -5,7 +5,7 @@ import { getGenre, saveGenre } from './js/genre';
 
 const debounce = require('lodash.debounce');
 const DEBOUNCE_DELAY = 300;
-
+import { onCardFilmClick } from "./js/movieInfo";
 
 // import addToWatchedFilm from "./js/localStorageToWatchedFilm";
 // import addToQueueFilm from "./js/localStorageToQueueFilm";
@@ -15,7 +15,6 @@ import openCardFilm from './js/openCardFilm'
 import {refs, filterResults, onInputChange} from './js/keywordSearch';
 import footer from './js/modalFooter';
 
-import oneMovies from "./js/movieInfo";
 
 import { createPagination } from "./js/createPagination"
 
@@ -73,5 +72,10 @@ async function onFormSubmit (e) {
             console.log(error);
             }
 } 
-    
-export {movies, oneMovies, movieDbApi}
+ 
+const cardOneFilm = document.querySelector('.gallery');
+cardOneFilm.addEventListener('click', onCardFilmClick);
+
+
+
+export {movies, movieDbApi}
