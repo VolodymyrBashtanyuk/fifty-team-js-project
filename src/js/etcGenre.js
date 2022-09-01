@@ -1,5 +1,5 @@
-import { refs } from './createOneObject';
-import { libraryGallery } from './library/insertCreatedObject'
+import { refs } from './createMainMarkup';
+import { libraryGallery } from './library/insertMainMarkup'
 
 refs.gallery.addEventListener('click', onListenerBtnEtc);
 libraryGallery.addEventListener('click', onListenerBtnEtc);

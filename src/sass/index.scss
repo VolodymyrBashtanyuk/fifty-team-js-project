@@ -7,10 +7,11 @@
 @import './base/container';
 @import './base/basic';
 
-@import './components/filmCardMain';
-@import './components/header';
-@import './components/createOneObject';
-@import './components/modalFooter';
-@import './components/pagination';
-@import './components/footer';
-@import './components/modalMovie';
+@import './components/header/header';
+@import './components/body/filmCardMain';
+@import './components/body/createMainMarkup';
+@import './components/body/modalMovie';
+@import './components/body/pagination';
+
+@import './components/footer/modalFooter';
+@import './components/footer/footer';

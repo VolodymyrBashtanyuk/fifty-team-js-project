@@ -1,8 +1,5 @@
 const refs = {
   gallery: document.querySelector('.gallery'),
-  // btnEtc: document.querySelector(".btn__etc"),
-  // oneFilmGenre: document.querySelector(".film__genre"),
-
 }
 
 import { filmGenre } from './genre'

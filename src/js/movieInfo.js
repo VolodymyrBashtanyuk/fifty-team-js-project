@@ -1,8 +1,8 @@
 import theMovieDbApi from "./fetchMovies";
 import createdCardFilm from "./markUpModal";
 
-import addToWatchedFilm from "./localStorageToWatchedFilm";
-import addToQueueFilm from "./localStorageToQueueFilm";
+import addToWatchedFilm from "./localStorageAddWatchedFilm";
+import addToQueueFilm from "./localStorageAddQueueFilm";
 import removeStorageWatchedFilm from './removeStorageWatchedFilm';
 import removeStorageQueueFilm from './removeStorageQueueFilm';
 import spinner from './preLoader'
@@ -38,6 +38,7 @@ function localStorageFilmData(evt) {
         addToWatchedFilm(oneMovieResponse);
         const btnWatched = document.getElementById('btn-w');
         const btnRemoveWatchedFilm = document.getElementById('btn-rw');
+
         btnWatched.classList.add('hide');
         btnRemoveWatchedFilm.classList.remove('hide');
         btnRemoveWatchedFilm.addEventListener('click', removeStorageWatchedFilm);
