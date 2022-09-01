@@ -1,7 +1,5 @@
-
-let listWatchedFilm = JSON.parse(localStorage.getItem('filmsWatched')) || [];
-
     export default function addToWatchedFilm(data) {
+        let listWatchedFilm = JSON.parse(localStorage.getItem('filmsWatched')) || [];
 
         let film = data;
         if(data === "") {

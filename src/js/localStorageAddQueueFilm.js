@@ -1,7 +1,5 @@
-
-let listQueue = JSON.parse(localStorage.getItem('filmsQueue')) || [];
-
 export default function addToQueueFilm(data) {
+    let listQueue = JSON.parse(localStorage.getItem('filmsQueue')) || [];
 
     let film = data;
 
