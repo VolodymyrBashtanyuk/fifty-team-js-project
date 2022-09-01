@@ -215,13 +215,13 @@ margin-bottom: 8px;
   padding: 4px 10px;
   width: 110px;
 
-  border: 1px solid transparent;
-  background-color: var(--btn-rating-bg);
-
+  border: 1px solid var(--primery-txt);
+  background-color: transparent;
+cursor: pointer;
   font-weight: 500;
   font-size: 14px;
   line-height: 1.33;
-  color: var(--secondary-txt);
+  color: var(--primery-txt);
   text-transform: uppercase;
 
   transition-property: transform, background-color;
@@ -232,6 +232,7 @@ margin-bottom: 8px;
   &:focus {
     transform: scale(1.05);
     background-color: var(--body-second-txt);
+    color: rgba(255, 255, 255, 0.9);
   }
 
   @include mq(mobile-only) {
@@ -266,6 +267,7 @@ margin-bottom: 8px;
   font-size: 14px;
   line-height: 1.33;
   color: var(--primery-txt);
+  cursor: pointer;
   text-transform: uppercase;
   transition-property: background-color, transform;
   transform-origin: left;
@@ -275,7 +277,8 @@ margin-bottom: 8px;
   &:hover,
   &:focus {
     transform: scale(1.05);
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: var(--body-second-txt);
+    color: rgba(255, 255, 255, 0.9);
   }
   
 

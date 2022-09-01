@@ -1,5 +1,5 @@
 import getWatchedData from './getWatchedData';
-import { insertCreatedObject } from './insertCreatedObject';
+import { insertCreatedObject } from './insertMainMarkup';
 export const refs = {
     btnWatchedHeaderEl: document.querySelector('.header__it--watched'),
     btnQueueHeaderEl: document.querySelector('.header__it--queue'),

@@ -1,5 +1,5 @@
 import {movieDbApi} from "../index"
-import {insertCreatedObject} from './createOneObject';
+import {insertCreatedObject} from './createMainMarkup';
 
 import spinner from './preLoader'
 import {filterResults} from "./keywordSearch"

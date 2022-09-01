@@ -2,16 +2,15 @@
 
 import { filmGenre } from './js/genre'
 import { getWatchedData  } from "./js/library/getWatchedData";
-import { insertCreatedObject } from "./js/library/insertCreatedObject";
+import { insertCreatedObject } from "./js/library/insertMainMarkup";
 import footer from './js/modalFooter';
-import createdCardFilm from "./js/markUpModal";
+import createdCard from "./js/library/markUpModalLibrary";
 import spinner from './js/preLoader';
 import openCardFilm from './js/openCardFilm';
-import { onCardFilmClick } from "./js/oneMovie";
-import oneMovies from "./js/oneMovie";
 
-import addToWatchedFilm from "./js/localStorageToWatchedFilm";
-import addToQueueFilm from "./js/localStorageToQueueFilm";
+import addToWatchedFilm from "./js/localStorageAddWatchedFilm";
+import addToQueueFilm from "./js/localStorageAddQueueFilm";
+import onListenerBtnEtc from './js/etcGenre'
 
 import { refs, onWatchedBtnClick } from './js/library/renderWatchedData';
 import onQueueBtnClick from './js/library/renderQueueData';
@@ -21,5 +20,3 @@ refs.btnWatchedHeaderEl.addEventListener('click', onWatchedBtnClick);
 refs.btnQueueHeaderEl.addEventListener('click', onQueueBtnClick);
 
 onWatchedBtnClick();
-const cardOneFilm = document.querySelector('.gallery');
-cardOneFilm.addEventListener('click', onCardFilmClick);

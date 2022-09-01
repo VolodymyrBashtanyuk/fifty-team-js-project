@@ -1,27 +1,28 @@
 import theMovieDbApi from "./js/fetchMovies";
-import { insertCreatedObject} from './js/createOneObject'
+import { insertCreatedObject} from './js/createMainMarkup'
 import spinner from './js/preLoader'
 import { getGenre, saveGenre } from './js/genre';
+
 const debounce = require('lodash.debounce');
 const DEBOUNCE_DELAY = 300;
 import { onCardFilmClick } from "./js/oneMovie";
 
-import addToWatchedFilm from "./js/localStorageToWatchedFilm";
-import addToQueueFilm from "./js/localStorageToQueueFilm";
+// import addToWatchedFilm from "./js/localStorageToWatchedFilm";
+// import addToQueueFilm from "./js/localStorageToQueueFilm";
 
 import etsGenre from './js/etcGenre';
 import openCardFilm from './js/openCardFilm'
 import {refs, filterResults, onInputChange} from './js/keywordSearch';
 import footer from './js/modalFooter';
 
-import oneMovies from "./js/oneMovie";
+import oneMovies from "./js/movieInfo";
 
 import { createPagination } from "./js/createPagination"
 
 
 import { createPagination, getCurrentPageLs, saveQueryTypeLs } from "./js/createPagination"
 
-refs.falseresultMessage.classList.add('hide');
+
 const movieDbApi = new theMovieDbApi();
 
 

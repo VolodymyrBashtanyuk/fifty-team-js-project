@@ -1,10 +1,12 @@
-import { refs } from './createOneObject';
+import { refs } from './createMainMarkup';
+import { libraryGallery } from './library/insertMainMarkup'
 
 refs.gallery.addEventListener('click', onListenerBtnEtc);
+libraryGallery.addEventListener('click', onListenerBtnEtc);
+
 
 export default function onListenerBtnEtc(e) {
     e.preventDefault();
-
     if (e.target.nodeName !== "BUTTON") {
         return;
     }

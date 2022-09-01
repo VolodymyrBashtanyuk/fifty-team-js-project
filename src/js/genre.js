@@ -14,11 +14,9 @@ function getGenre() {
 function filmGenre(genre_ids) {
     getGenre();
     const arrayFilmGenre = genres.filter(ganre => genre_ids.some(value => value === ganre.id)).map(obj => obj.name);
-    // const arrayFilmGenre = genres.filter(ganre => genre_ids.some(value => value === ganre.id)).map(obj => obj.name).join(", ");
     return arrayFilmGenre;
 }
 
 
 export { saveGenre, getGenre, filmGenre };
 
-// ${arrayGenreInCard.lenght <= 3 ? `${btnHide}` : ``}
