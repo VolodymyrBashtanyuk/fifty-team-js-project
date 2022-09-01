@@ -15,7 +15,7 @@ import onListenerBtnEtc from './js/etcGenre'
 
 import { refs, onWatchedBtnClick } from './js/library/renderWatchedData';
 import onQueueBtnClick from './js/library/renderQueueData';
-
+import oneMovies from './js/movieInfo'
 refs.btnWatchedHeaderEl.classList.add('is-active');
 refs.btnWatchedHeaderEl.addEventListener('click', onWatchedBtnClick);
 refs.btnQueueHeaderEl.addEventListener('click', onQueueBtnClick);
