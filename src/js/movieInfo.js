@@ -1,8 +1,8 @@
 import theMovieDbApi from "./fetchMovies";
 import createdCardFilm from "./markUpModal";
 
-import addToWatchedFilm from "./localStorageToWatchedFilm";
-import addToQueueFilm from "./localStorageToQueueFilm";
+import addToWatchedFilm from "./localStorageAddWatchedFilm";
+import addToQueueFilm from "./localStorageAddQueueFilm";
 import removeStorageWatchedFilm from './removeStorageWatchedFilm';
 import removeStorageQueueFilm from './removeStorageQueueFilm';
 import spinner from './preLoader'
