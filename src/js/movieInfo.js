@@ -101,7 +101,7 @@ export default async function oneMovies(id) {
 
             function localStorageFilmData(evt) {
             if (evt.target.className === 'btn-watched') {
-            // addToWatchedFilm(oneMovieResponse);
+            addToWatchedFilm(oneMovieResponse);
              const btnWatched = document.getElementById('btn-w');
             const btnRemoveWatchedFilm = document.getElementById('btn-rw');
             
@@ -110,7 +110,7 @@ export default async function oneMovies(id) {
             btnRemoveWatchedFilm.addEventListener('click', removeStorageWatchedFilm);
             
             } else if(evt.target.className === 'btn-queue') {
-            // addToQueueFilm(oneMovieResponse);
+            addToQueueFilm(oneMovieResponse);
             
             const btnQueue = document.getElementById('btn-q');
             const btnRemoveQueueFilm = document.getElementById('btn-rq');
