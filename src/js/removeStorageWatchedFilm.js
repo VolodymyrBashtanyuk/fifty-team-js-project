@@ -1,6 +1,5 @@
 import getWatchedData from './library/getWatchedData';
 
-
 export default function removeStorageWatchedFilm(id) {
   let listWatchedFilm = getWatchedData();
     const index = listWatchedFilm.findIndex(film => film.id === id);

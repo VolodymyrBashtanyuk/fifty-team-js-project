@@ -29,14 +29,12 @@ async function oneMovies(id) {
             btnQueue: document.getElementById('btn-q'),
             btnRemoveQueue: document.getElementById('btn-rq'),
         }
-        console.log(refsEl);
         filterLocalStorageWatched(id);
         filterLocalStorageQueue(id);
 
         function filterLocalStorageWatched (idOpenFilm) {
             const arrayWatchedFilms = getWatchedData();
             const result = arrayWatchedFilms.some(film => film.id === idOpenFilm);
-          
             console.log(result);
             if (result === true) {
                 refsEl.btnWatched.classList.add('hide');
@@ -66,34 +64,39 @@ async function oneMovies(id) {
                 refsEl.btnRemoveWatched.addEventListener('click', onRemoveWatchedBtnClick);
             }
 
+
             function filterLocalStorageQueue (idOpenFilm) {
-            const arrayWatchedFilms = getQueueData();
-            const result = arrayWatchedFilms.some(film => film.id === idOpenFilm);
-            console.log(result);
-            if (result === true) {
-                refsEl.btnQueue.classList.add('hide');
-                refsEl.btnRemoveQueue.classList.remove('hide');
-                refsEl.btnRemoveQueue.addEventListener('click', onRemoveQueueBtnClick);
-                function onRemoveQueueBtnClick() {
-                    removeStorageQueueFilm(id);
-                    refsEl.btnQueue.classList.remove('hide');
-                    refsEl.btnRemoveQueue.add('hide');
-                }
-                
-            } else {
-                refsEl.btnRemoveQueue.classList.add('hide');
-                refsEl.btnQueue.classList.remove('hide');
-                refsEl.btnQueue.addEventListener('click', onQueueBtnClick);
-                function onQueueBtnClick() {
-                    addToQueueFilm(oneMovieResponse);
+                const arrayWatchedFilms = getQueueData();
+                const result = arrayWatchedFilms.some(film => film.id === idOpenFilm);
+                console.log(result);
+                if (result === true) {
                     refsEl.btnQueue.classList.add('hide');
                     refsEl.btnRemoveQueue.classList.remove('hide');
-                }
-            } 
+                    refsEl.btnRemoveQueue.addEventListener('click', onRemoveQueueBtnClick);
+                    return;
+                } 
+                    refsEl.btnRemoveQueue.classList.add('hide');
+                    refsEl.btnQueue.classList.remove('hide');
+                    refsEl.btnQueue.addEventListener('click', onQueueBtnClick);
+                           
+            function onRemoveQueueBtnClick() {
+                removeStorageQueueFilm(oneMovieResponse.id);
+                refsEl.btnRemoveQueue.classList.add('hide');
+                refsEl.btnQueue.classList.remove('hide');
+                refsEl.btnRemoveQueue.removeEventListener('click', onRemoveQueueBtnClick);
+                refsEl.btnQueue.addEventListener('click', onQueueBtnClick);
+            }
+            function onQueueBtnClick() {
+                addToQueueFilm(oneMovieResponse);
+                console.log(oneMovieResponse);
+                refsEl.btnQueue.classList.add('hide');
+                refsEl.btnRemoveQueue.classList.remove('hide');
+                refsEl.btnQueue.removeEventListener('click', onQueueBtnClick);
+                refsEl.btnRemoveQueue.addEventListener('click', onRemoveQueueBtnClick);
             }
 
-    } catch(error) {
+    
+} } catch(error) {
     console.log(error);
     };
-} 
-   
+}

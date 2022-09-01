@@ -1,6 +1,10 @@
+import getQueueData from './library/getQueueData';
 
-let listQueue = JSON.parse(localStorage.getItem('filmsQueue'));
-export default function removeStorageQueueFilm(index) {
-    listQueue.splice(index, 1);
-
+export default function removeStorageQueueFilm(id) {
+  let listQueueFilm = getQueueData();
+    const index = listQueueFilm.findIndex(film => film.id === id);
+    console.log(index);
+    listQueueFilm.splice(index, 1);
+    localStorage.setItem('filmsQueue', JSON.stringify(listQueueFilm));
+    console.log(listQueueFilm);
   }
