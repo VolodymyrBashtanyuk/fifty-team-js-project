@@ -26,7 +26,7 @@ const movieDbApi = new theMovieDbApi();
 
 
 
-import openCardFilm from './js/openCardFilm'
+// import openCardFilm from './js/openCardFilm'
 
 async function movies() {
 
