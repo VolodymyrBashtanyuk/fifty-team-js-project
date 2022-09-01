@@ -80,7 +80,9 @@ function createModalFilm(data) {
 };
 
 export default function createdCardFilm(data) {
+  
     const dataFilm = createModalFilm(data);
       refsModal.modal.innerHTML = dataFilm;
     
 }
+export { refsModal, imageURL, noImg}
