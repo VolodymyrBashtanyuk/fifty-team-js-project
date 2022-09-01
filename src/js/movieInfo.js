@@ -11,7 +11,7 @@ const movieDbApi = new theMovieDbApi();
 
 import getWatchedData from './library/getWatchedData';
 import getQueueData from './library/getQueueData';
-
+import findFilmByIdLs from "./library/findFilmByIdLs"
 
 export function onCardFilmClick(e) {
     if (!e.target.closest('.film-card')) return
@@ -22,7 +22,8 @@ export function onCardFilmClick(e) {
 export default async function oneMovies(id) {
     spinner.startSpinner();
     try {
-        const oneMovieResponse = await movieDbApi.fetchOneMovie(id);
+        const filmFromLs = findFilmByIdLs(id)
+        const oneMovieResponse = filmFromLs ? filmFromLs : await movieDbApi.fetchOneMovie(id);
         createdCardFilm(oneMovieResponse);
         spinner.removeSpinner();
 
