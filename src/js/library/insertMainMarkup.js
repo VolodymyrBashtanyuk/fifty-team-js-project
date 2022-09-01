@@ -46,7 +46,7 @@ return arrayImages.reduce((acc,film)=>acc + createOneObject(film)," ");
 
 export function insertCreatedObject (arrayImages) {
   const result = generateMarkup(arrayImages);
-  libraryGallery.innerHTML = result;
+  if (libraryGallery)libraryGallery.innerHTML = result;
 
 };
 

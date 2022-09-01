@@ -50,8 +50,8 @@ export default async function oneMovies(id) {
                 refsEl.btnWatched.addEventListener('click', onWatchedBtnClick);
             }
 
-            function onRemoveWatchedBtnClick() {
-                removeStorageWatchedFilm(oneMovieResponse.id);
+            function onRemoveWatchedBtnClick(e) {
+                removeStorageWatchedFilm(e);
                 refsEl.btnRemoveWatched.classList.add('hide');
                 refsEl.btnWatched.classList.remove('hide');
                 refsEl.btnRemoveWatched.removeEventListener('click', onRemoveWatchedBtnClick);
@@ -80,8 +80,8 @@ export default async function oneMovies(id) {
                     refsEl.btnQueue.classList.remove('hide');
                     refsEl.btnQueue.addEventListener('click', onQueueBtnClick);
                            
-            function onRemoveQueueBtnClick() {
-                removeStorageQueueFilm(oneMovieResponse.id);
+            function onRemoveQueueBtnClick(e) {
+                removeStorageQueueFilm(e);
                 refsEl.btnRemoveQueue.classList.add('hide');
                 refsEl.btnQueue.classList.remove('hide');
                 refsEl.btnRemoveQueue.removeEventListener('click', onRemoveQueueBtnClick);
@@ -130,7 +130,7 @@ export default async function oneMovies(id) {
             let found = false;
             
             for(let i = 0; i < arrayDataFilm.length; i += 1) {
-             if(oneMovieResponse.id === arrayDataFilm[i].id) {
+             if(oneMovieResponse.id == arrayDataFilm[i].id) {
             found = true;
              btnWatched.classList.add('hide');
             btnRemoveWatchedFilm.classList.remove('hide');
@@ -147,7 +147,7 @@ export default async function oneMovies(id) {
             let found = false;
             
             for(let i = 0; i < arrayDataFilm.length; i += 1) {
-             if(oneMovieResponse.id === arrayDataFilm[i].id ) {
+             if(oneMovieResponse.id == arrayDataFilm[i].id ) {
             found = true;
             btnQueue.classList.add('hide');
             btnRemoveQueueFilm.classList.remove('hide');

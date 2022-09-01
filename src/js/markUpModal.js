@@ -15,6 +15,7 @@ function createModalFilm(data) {
       poster_path,
       vote_average,
       vote_count,
+      id,
     } = data;
     const genreName = genres.map(ganre => ganre.name).join(', ');
 
@@ -59,7 +60,7 @@ function createModalFilm(data) {
           <p class="modal-movie-descr-movie">${overview ?? ''}</p>
         </div>
       
-        <ul class="modal-movie__btn-list">
+        <ul class="modal-movie__btn-list" id = "${id}">
             <li>
                 <button class="btn-watched" id='btn-w' type="button">ADD TO WATCHED</button>
             </li>
