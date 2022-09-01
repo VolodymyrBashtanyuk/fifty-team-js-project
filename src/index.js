@@ -73,4 +73,4 @@ async function onFormSubmit (e) {
             }
 } 
     
-export {movies, oneMovies, movieDbApi}
+export {movies, movieDbApi}
