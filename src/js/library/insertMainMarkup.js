@@ -1,7 +1,7 @@
 import { smartGenre } from '../createMainMarkup'
 
 
-const libraryGallery = document.querySelector('.gallery')
+const libraryGallery = document.querySelector('.library-gallery')
 
 const imageURL = "https://image.tmdb.org/t/p/w500";
 const noImg ='https://pixabay.com/get/g8ff089af213f7f36d1b7fabc1c8d5536a6a1cfdce9fd273bb5b53f7689c1046d065883ec139843d5671e752c90fc7d25af4a0a10c6f515e8c575547e6ee6da5d_1280.jpg';
@@ -46,7 +46,7 @@ return arrayImages.reduce((acc,film)=>acc + createOneObject(film)," ");
 
 export function insertCreatedObject (arrayImages) {
   const result = generateMarkup(arrayImages);
-  libraryGallery.innerHTML = result;
+  if (libraryGallery)libraryGallery.innerHTML = result;
 
 };
 

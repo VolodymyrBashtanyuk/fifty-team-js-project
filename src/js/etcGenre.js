@@ -2,7 +2,7 @@ import { refs } from './createMainMarkup';
 import { libraryGallery } from './library/insertMainMarkup'
 
 refs.gallery.addEventListener('click', onListenerBtnEtc);
-libraryGallery.addEventListener('click', onListenerBtnEtc);
+libraryGallery?.addEventListener('click', onListenerBtnEtc);
 
 
 export default function onListenerBtnEtc(e) {
