@@ -4,7 +4,7 @@
   top: 0;
   width: 100vw;
   height: 100vh;
-
+  z-index: 30;
   background: rgba(0, 0, 0, 0.7);
   opacity: 1;
   visibility: visible;
@@ -33,7 +33,7 @@
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
   transition: transform var(--animation-hover);
-  z-index: 20;
+  z-index: 30;
   .backdrop.is-hidden & {
     transform: translate(-50%, -50%) scale(0.5);
   }

@@ -6,12 +6,13 @@
 @import './base/reset';
 @import './base/container';
 @import './base/basic';
-@import './components//body/scroll-up';
+
 @import './components/header/header';
 @import './components/body/filmCardMain';
 @import './components/body/createMainMarkup';
 @import './components/body/modalMovie';
 @import './components/body/pagination';
+@import './components//body/scroll-up';
 
 @import './components/footer/modalFooter';
 @import './components/footer/footer';
