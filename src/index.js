@@ -7,7 +7,7 @@ const debounce = require('lodash.debounce');
 const DEBOUNCE_DELAY = 300;
 import { onCardFilmClick } from "./js/movieInfo";
 import oneMovies from "./js/movieInfo";
-
+import { scrollUp, smoothScrollToBottomPage } from './js/scroll-up';
 import etsGenre from './js/etcGenre';
 import openCardFilm from './js/openCardFilm'
 import {refs, filterResults, onInputChange} from './js/keywordSearch';
@@ -72,6 +72,6 @@ async function onFormSubmit (e) {
 const cardOneFilm = document.querySelector('.gallery');
 cardOneFilm.addEventListener('click', onCardFilmClick);
 
-
+scrollUp.addEventListener('click', smoothScrollToBottomPage);
 
 export {movies, movieDbApi}
