@@ -10,7 +10,7 @@ import { onCardFilmClick } from "./js/movieInfo";
 import addToWatchedFilm from "./js/localStorageAddWatchedFilm";
 import addToQueueFilm from "./js/localStorageAddQueueFilm";
 import onListenerBtnEtc from './js/etcGenre'
-
+import { scrollUp, smoothScrollToBottomPage} from './js/scroll-up';
 import { refs, onWatchedBtnClick } from './js/library/renderWatchedData';
 import onQueueBtnClick from './js/library/renderQueueData';
 import oneMovies from './js/movieInfo'
@@ -21,3 +21,5 @@ refs.btnQueueHeaderEl.addEventListener('click', onQueueBtnClick);
 onWatchedBtnClick();
 const cardOneFilm = document.querySelector('.gallery');
 cardOneFilm.addEventListener('click', onCardFilmClick);
+
+scrollUp.addEventListener('click', smoothScrollToBottomPage);
