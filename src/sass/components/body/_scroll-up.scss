@@ -3,9 +3,19 @@
     right: 45px;
     bottom: 45px;
     z-index: 20;
+    background-color: var(--footer-bg);
+    border: transparent;
+    border-radius: 50%;
     transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
     cursor: pointer;
 }
+.back-to-top:hover {
+    background-color: var(--btn-rating-bg);
+}
 .scrollup__icon {
-    fill: #990000;
+    fill: var(--btn-rating-bg);
+    
+}
+.scrollup__icon:hover {
+    fill: var(--footer-bg);
 }
