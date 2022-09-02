@@ -19,3 +19,6 @@
 .scrollup__icon:hover {
     fill: var(--footer-bg);
 }
+.back-to-top:hover .scrollup__icon {
+    fill: var(--footer-bg);
+}
