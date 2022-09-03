@@ -14,8 +14,6 @@ export function filterResults(searchMovie) {
   spinner.startSpinner();
   if (searchMovie.total_results === 0) {
     refs.falseresultMessage.classList.remove('hide');
-    refs.gallery.innerHTML = '';
-    refs.pagination.innerHTML = '';
     spinner.removeSpinner();
     return;
 } else if (searchMovie.total_results > 0){
